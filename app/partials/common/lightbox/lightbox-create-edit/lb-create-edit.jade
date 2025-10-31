@@ -79,6 +79,25 @@ form(ng-if="lightboxOpen")
                         on-delete-tag="deleteTag(tag)"
                     )
 
+                // ============================ ADDED BY GITHUB COPILOT START ============================
+                fieldset.ai-helper-fieldset(ng-if="objType == 'us'")
+                    .ai-helper-header
+                        label.ai-helper-title(for="ai-helper-input") AI suggestions (optional)
+                        button.btn.btn-small.ai-helper-button(
+                            type="button"
+                            ng-click="requestAiSuggestion()"
+                            ng-disabled="aiHelper.loading || !aiHelper.prompt"
+                        )
+                            span(ng-if="!aiHelper.loading") Fetch suggestion
+                            span(ng-if="aiHelper.loading") Generating…
+                    textarea#ai-helper-input.ai-helper-input(
+                        rows="3"
+                        ng-model="aiHelper.prompt"
+                        placeholder="Describe the user story you want to draft"
+                    )
+                    small.ai-helper-hint Tip: the generated text will be placed in subject and description field below.
+                // ============================= ADDED BY GITHUB COPILOT END =============================
+
                 fieldset
                     textarea.description(
                         rows=7

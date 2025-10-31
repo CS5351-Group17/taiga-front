@@ -528,7 +528,7 @@ groupBy = @.taiga.groupBy
 
 CreateEditDirective = (
 $log, $repo, $model, $rs, $rootScope, lightboxService, $loading, $translate,
-$confirm, $q, attachmentsService, $template, $compile) ->
+$confirm, $http, $q, attachmentsService, $template, $compile) ->
     link = ($scope, $el, attrs) ->
         schema = null
         objType = null
@@ -536,6 +536,86 @@ $confirm, $q, attachmentsService, $template, $compile) ->
 
         attachmentsToAdd = Immutable.List()
         attachmentsToDelete = Immutable.List()
+
+        ### ============================ ADDED BY GITHUB COPILOT START ============================ ###
+        $scope.aiHelper =
+            prompt: ""
+            loading: false
+            error: null
+
+        addTagsFromAi = (rawTags) ->
+            return false unless angular.isArray(rawTags)
+
+            addedAny = false
+
+            for tagData in rawTags
+                continue unless angular.isObject(tagData)
+                tagName = trim(tagData.name ? "")
+                continue unless tagName
+                tagName = tagName.replace(/^#/, "")
+                tagColor = tagData.color ? null
+                tagNameLower = tagName.toLowerCase()
+
+                try
+                    if angular.isFunction($scope.addTag)
+                        $scope.addTag(tagName, tagColor)
+                    else
+                        $scope.obj.tags ?= []
+
+                        alreadyPresent = _.some($scope.obj.tags, (current) ->
+                            if angular.isArray(current)
+                                return current[0]?.toLowerCase?() == tagNameLower
+                            if angular.isObject(current)
+                                return current.name?.toLowerCase?() == tagNameLower
+                            false
+                        )
+                        continue if alreadyPresent
+
+                        if $scope.obj.tags.length and angular.isArray($scope.obj.tags[0])
+                            $scope.obj.tags.push([tagName, tagColor])
+                        else
+                            $scope.obj.tags.push({ name: tagName, color: tagColor })
+
+                    addedAny = true
+                catch error
+                    $log?.error("AI tag injection failed", error)
+
+            return addedAny
+
+        requestAiSuggestion = (payload) ->
+            $http.post("/api/v1/userstories/ai-suggestion", payload)
+
+        $scope.requestAiSuggestion = ->
+            return if $scope.aiHelper.loading or !$scope.aiHelper.prompt
+
+            $scope.aiHelper.loading = true
+            $scope.aiHelper.error = null
+
+            payload =
+                prompt: $scope.aiHelper.prompt
+                project: $scope.project?.id
+                subject: $scope.obj?.subject
+                description: $scope.obj?.description
+
+            requestAiSuggestion(payload)
+                .then (response) ->
+                    suggestion_description = response?.data?.suggestion_description ? ""
+                    suggestion_subject = response?.data?.suggestion_subject ? ""
+                    suggestion_tags = response?.data?.suggestion_tags
+                    addedTags = addTagsFromAi(suggestion_tags)
+                    # suggestion_tag = response?.data?.suggestion_tag ? ""
+                    if suggestion_description
+                        $scope.obj.description = suggestion_description
+                    if suggestion_subject
+                        $scope.obj.subject = suggestion_subject
+                    if not suggestion_description and not suggestion_subject and !addedTags
+                        $confirm.notify("warning", $translate.instant("COMMON.ERROR"))
+                , (error) ->
+                    message = error?.data?._error_message ? $translate.instant("COMMON.ERROR")
+                    $confirm.notify("error", message)
+                .finally ->
+                    $scope.aiHelper.loading = false
+        ### ============================= ADDED BY GITHUB COPILOT END ============================= ###
 
         schemas = {
             us: {
@@ -907,6 +987,7 @@ module.directive("tgLbCreateEdit", [
     "$tgLoading",
     "$translate",
     "$tgConfirm",
+    "$http",
     "$q",
     "tgAttachmentsService",
     "$tgTemplate",

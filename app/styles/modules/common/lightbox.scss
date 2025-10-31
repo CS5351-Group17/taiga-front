@@ -78,6 +78,66 @@
         }
     }
 
+    /* ============================ ADDED BY GITHUB COPILOT START ============================ */
+    fieldset.ai-helper-fieldset {
+        background: rgba($whitish, .8);
+        border: 1px solid rgba($color-link-primary, .18);
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+        margin-bottom: 1.5rem;
+        padding: 1.125rem 1.25rem;
+        transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    fieldset.ai-helper-fieldset:focus-within {
+        border-color: rgba($color-link-primary, .45);
+        box-shadow: 0 4px 12px rgba($color-link-primary, .12);
+    }
+
+    .ai-helper-header {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .75rem;
+        justify-content: space-between;
+    }
+
+    .ai-helper-title {
+        @include font-type(medium);
+        color: $color-black900;
+        letter-spacing: .01em;
+    }
+
+    .ai-helper-button {
+        @include font-size(small);
+        font-weight: 600;
+        padding-inline: 1rem;
+    }
+
+    .ai-helper-input {
+        border: 1px solid rgba($color-link-primary, .2);
+        border-radius: 4px;
+        min-height: 6rem;
+        padding: .75rem 1rem;
+        transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .ai-helper-input:focus {
+        border-color: rgba($color-link-primary, .45);
+        box-shadow: 0 0 0 2px rgba($color-link-primary, .16);
+        outline: none;
+    }
+
+    .ai-helper-hint {
+        @include font-size(xsmall);
+        color: rgba($color-black900, .65);
+        line-height: 1.5;
+    }
+
+    /* ============================= ADDED BY GITHUB COPILOT END ============================= */
+
     .settings {
         display: flex;
         justify-content: center;
@@ -776,7 +836,10 @@
     $sidebar-width: calc(200px + 2rem);
     form {
         flex-basis: $width;
+        max-height: 80vh;
         max-width: $width;
+        overflow-y: auto;
+        padding-right: 1rem;
         width: $width;
     }
     label {
