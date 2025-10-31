@@ -834,7 +834,7 @@
     $width: 700px;
     $pop-width: 203px;
     $sidebar-width: calc(200px + 2rem);
-    form {
+    form { /* modified by me */
         flex-basis: $width;
         max-height: 80vh;
         max-width: $width;
