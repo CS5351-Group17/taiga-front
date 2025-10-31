@@ -528,7 +528,7 @@ groupBy = @.taiga.groupBy
 
 CreateEditDirective = (
 $log, $repo, $model, $rs, $rootScope, lightboxService, $loading, $translate,
-$confirm, $http, $q, attachmentsService, $template, $compile) ->
+$confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
     link = ($scope, $el, attrs) ->
         schema = null
         objType = null
@@ -541,7 +541,17 @@ $confirm, $http, $q, attachmentsService, $template, $compile) ->
         $scope.aiHelper =
             prompt: ""
             loading: false
+            glassEffect: false
             error: null
+            confirmVisible: false
+
+        hasExistingStoryContent = ->
+            subject = trim($scope.obj?.subject ? "")
+            description = trim($scope.obj?.description ? "")
+            subject.length > 0 or description.length > 0
+
+        hideAiConfirmation = ->
+            $scope.aiHelper.confirmVisible = false
 
         addTagsFromAi = (rawTags) ->
             return false unless angular.isArray(rawTags)
@@ -585,11 +595,13 @@ $confirm, $http, $q, attachmentsService, $template, $compile) ->
         requestAiSuggestion = (payload) ->
             $http.post("/api/v1/userstories/ai-suggestion", payload)
 
-        $scope.requestAiSuggestion = ->
+        sendAiSuggestionRequest = ->
             return if $scope.aiHelper.loading or !$scope.aiHelper.prompt
 
             $scope.aiHelper.loading = true
+            $scope.aiHelper.glassEffect = true
             $scope.aiHelper.error = null
+            hideAiConfirmation()
 
             payload =
                 prompt: $scope.aiHelper.prompt
@@ -597,13 +609,21 @@ $confirm, $http, $q, attachmentsService, $template, $compile) ->
                 subject: $scope.obj?.subject
                 description: $scope.obj?.description
 
-            requestAiSuggestion(payload)
+            TEST_AI_DELAY_MS = 2000 # increase to simulate slower AI responses while testing
+
+            delayPromise = if TEST_AI_DELAY_MS > 0
+                $timeout(angular.noop, TEST_AI_DELAY_MS)
+            else
+                $q.when()
+
+            requestPromise = delayPromise.then -> requestAiSuggestion(payload)
+
+            requestPromise
                 .then (response) ->
                     suggestion_description = response?.data?.suggestion_description ? ""
                     suggestion_subject = response?.data?.suggestion_subject ? ""
                     suggestion_tags = response?.data?.suggestion_tags
                     addedTags = addTagsFromAi(suggestion_tags)
-                    # suggestion_tag = response?.data?.suggestion_tag ? ""
                     if suggestion_description
                         $scope.obj.description = suggestion_description
                     if suggestion_subject
@@ -615,6 +635,22 @@ $confirm, $http, $q, attachmentsService, $template, $compile) ->
                     $confirm.notify("error", message)
                 .finally ->
                     $scope.aiHelper.loading = false
+                    $scope.aiHelper.glassEffect = false
+
+        $scope.onAiSuggestionClick = ->
+            return if $scope.aiHelper.loading or !$scope.aiHelper.prompt
+            if hasExistingStoryContent()
+                $scope.aiHelper.confirmVisible = true
+                return
+            sendAiSuggestionRequest()
+
+        $scope.confirmAiSuggestionOverwrite = ->
+            return if $scope.aiHelper.loading or !$scope.aiHelper.prompt
+            sendAiSuggestionRequest()
+
+        $scope.cancelAiSuggestionOverwrite = ->
+            return if $scope.aiHelper.loading
+            hideAiConfirmation()
         ### ============================= ADDED BY GITHUB COPILOT END ============================= ###
 
         schemas = {
@@ -989,6 +1025,7 @@ module.directive("tgLbCreateEdit", [
     "$tgConfirm",
     "$http",
     "$q",
+    "$timeout",
     "tgAttachmentsService",
     "$tgTemplate",
     "$compile",

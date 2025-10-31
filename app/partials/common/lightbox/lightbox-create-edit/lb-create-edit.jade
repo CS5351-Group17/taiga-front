@@ -80,22 +80,44 @@ form(ng-if="lightboxOpen")
                     )
 
                 // ============================ ADDED BY GITHUB COPILOT START ============================
-                fieldset.ai-helper-fieldset(ng-if="objType == 'us'")
+                fieldset.ai-helper-fieldset(
+                    ng-if="objType == 'us'"
+                    ng-class="{'ai-loading-glass': aiHelper.glassEffect}"
+                )
                     .ai-helper-header
                         label.ai-helper-title(for="ai-helper-input") AI suggestions (optional)
                         button.btn.btn-small.ai-helper-button(
                             type="button"
-                            ng-click="requestAiSuggestion()"
+                            ng-click="onAiSuggestionClick()"
                             ng-disabled="aiHelper.loading || !aiHelper.prompt"
+                            ng-class="{'ai-loading': aiHelper.loading}"
                         )
                             span(ng-if="!aiHelper.loading") Fetch suggestion
-                            span(ng-if="aiHelper.loading") Generating…
+                            span(ng-if="aiHelper.loading") 
+                                span.ai-loading-text Generating
+                                span.ai-loading-dots
+                                    span.dot
+                                    span.dot
+                                    span.dot
                     textarea#ai-helper-input.ai-helper-input(
                         rows="3"
                         ng-model="aiHelper.prompt"
                         placeholder="Describe the user story you want to draft"
                     )
                     small.ai-helper-hint Tip: the generated text will be placed in subject and description field below.
+                    .ai-helper-confirm(ng-if="aiHelper.confirmVisible")
+                        p.ai-helper-confirm-text AI suggestions will overwrite your current subject and description. Continue?
+                        .ai-helper-confirm-actions
+                            button.btn.btn-small.btn-primary(
+                                type="button"
+                                ng-click="confirmAiSuggestionOverwrite()"
+                                ng-disabled="aiHelper.loading"
+                            ) Continue
+                            button.btn.btn-small.btn-link(
+                                type="button"
+                                ng-click="cancelAiSuggestionOverwrite()"
+                                ng-disabled="aiHelper.loading"
+                            ) Cancel
                 // ============================= ADDED BY GITHUB COPILOT END =============================
 
                 fieldset
