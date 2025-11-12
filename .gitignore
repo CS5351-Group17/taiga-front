@@ -32,6 +32,7 @@ myDoc/
 .devcontainer/.DS_Store
 .devcontainer/*.back
 
+# Project documentation files (keep locally, don't commit)
 # 自定义文档（排除项目中自己创建的 Markdown 文档）
 # 保留官方文档：README.md, CHANGELOG.md, CONTRIBUTING.md
 AI_ANALYSIS_OVERVIEW.md
@@ -40,21 +41,13 @@ TESTING.md
 国际化增强_实施总结.md
 国际化增强改动说明.md
 推送代码到团队仓库指南.md
-测试指南_国际化增强.md
-测试指南_性能监控.md
-
-# 测试脚本（可选，根据团队决定）
-test-ai-analysis.sh
-verify-monitoring.sh
-
-# Project documentation files (keep locally, don't commit)
-AI_ANALYSIS_OVERVIEW.md
-AI_分析功能文档.md
-TESTING.md
-test-ai-analysis.sh
-_*.md
+测试指南_*.md
 MOBILE_OPTIMIZATION*.md
 UNIT_TESTING_GUIDE.md
 UNIT_TESTS_REPORT.md
 PR_DESCRIPTION_EN.md
+
+# 测试脚本
+test-ai-analysis.sh
+verify-monitoring.sh
 push-to-team-repo.sh
