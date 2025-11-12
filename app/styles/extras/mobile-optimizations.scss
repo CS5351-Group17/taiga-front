@@ -1,0 +1,465 @@
+/**
+ * Mobile Optimizations for Issues and Kanban Pages
+ * Responsive design for mobile devices (< 768px)
+ */
+
+/* ========================================
+   Common Mobile Utilities
+   ======================================== */
+
+@mixin mobile-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+@mixin mobile-hide {
+    @include mobile {
+        display: none !important;
+    }
+}
+
+@mixin mobile-show {
+    display: none;
+    @include mobile {
+        display: block !important;
+    }
+}
+
+@mixin mobile-flex-show {
+    display: none;
+    @include mobile {
+        display: flex !important;
+    }
+}
+
+@mixin touch-friendly {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem;
+}
+
+/* ========================================
+   Issues Page Mobile Optimizations
+   ======================================== */
+
+@include mobile {
+    .issues {
+        .filters-bar {
+            display: none;
+        }
+    }
+
+    .issue-main {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .issue-container {
+        flex-direction: column;
+        
+        .filters-bar {
+            display: none;
+        }
+    }
+
+    .issues-page {
+        padding: 0 0.5rem;
+        
+        &.filter {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+    }
+
+    .issue-header {
+        flex-wrap: wrap;
+        padding: 0.75rem 0.5rem;
+        
+        .btn-small {
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            white-space: nowrap;
+        }
+
+        .button-filter {
+            @include touch-friendly;
+        }
+    }
+
+    .issue-table-options-start {
+        flex-wrap: wrap;
+        width: 100%;
+        
+        tg-input-search {
+            flex: 1;
+            margin: 0.25rem;
+            min-width: 150px;
+            width: auto;
+        }
+    }
+
+    .issue-table-options-end {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+        
+        .button-bulk {
+            margin: 0.25rem;
+        }
+    }
+
+    .issues-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        
+        table {
+            min-width: 600px;
+        }
+        
+        th, td {
+            padding: 0.5rem;
+            white-space: nowrap;
+        }
+        
+        .issue-ref {
+            font-size: 0.875rem;
+        }
+        
+        .issue-subject {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .issue-pagination {
+        flex-direction: column;
+        align-items: stretch;
+        
+        .pagination-info {
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .pagination-controls {
+            justify-content: center;
+        }
+    }
+}
+
+/* Mobile filter toggle button */
+.mobile-filter-toggle {
+    @include mobile-show;
+    @include touch-friendly;
+    align-items: center;
+    background: $color-white;
+    border: 1px solid $color-gray200;
+    border-radius: 4px;
+    color: $color-link-primary;
+    cursor: pointer;
+    display: none;
+    font-size: 0.875rem;
+    justify-content: center;
+    margin: 0.5rem;
+    
+    svg {
+        fill: $color-link-primary;
+        height: 20px;
+        margin-right: 0.5rem;
+        width: 20px;
+    }
+    
+    &:hover {
+        background: $color-gray100;
+    }
+    
+    &:active {
+        background: $color-gray200;
+    }
+}
+
+/* Mobile filter drawer */
+.mobile-filter-drawer {
+    @include mobile {
+        background: $color-white;
+        bottom: 0;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+        left: 0;
+        max-width: 280px;
+        overflow-y: auto;
+        position: fixed;
+        top: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        width: 80%;
+        z-index: 1000;
+        
+        &.open {
+            transform: translateX(0);
+        }
+        
+        .filter-header {
+            align-items: center;
+            border-bottom: 1px solid $color-gray200;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            
+            h3 {
+                font-size: 1.125rem;
+                font-weight: 600;
+                margin: 0;
+            }
+            
+            .close-btn {
+                @include touch-friendly;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+                line-height: 1;
+                padding: 0.5rem;
+            }
+        }
+        
+        .filter-content {
+            padding: 1rem;
+        }
+    }
+}
+
+.mobile-filter-overlay {
+    @include mobile {
+        background: rgba(0, 0, 0, 0.5);
+        bottom: 0;
+        display: none;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 999;
+        
+        &.open {
+            display: block;
+        }
+    }
+}
+
+/* ========================================
+   Kanban Page Mobile Optimizations
+   ======================================== */
+
+@include mobile {
+    .kanban {
+        height: auto;
+        min-height: calc(100vh - 120px);
+        padding: 0.5rem;
+    }
+
+    .kanban-manager {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none;
+        overflow-x: hidden;
+        
+        &.expanded {
+            grid-template-columns: none;
+        }
+    }
+
+    .kanban-filter {
+        display: none;
+        
+        &.mobile-visible {
+            display: block;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .kanban-header {
+        flex-wrap: wrap;
+        padding: 0.75rem 0.5rem;
+        
+        .button-filter {
+            @include touch-friendly;
+        }
+    }
+
+    .taskboard-actions {
+        flex-wrap: wrap;
+        
+        .btn-small {
+            margin: 0.25rem;
+            padding: 0.5rem 0.75rem;
+        }
+    }
+
+    .kanban-table-options-start {
+        flex-wrap: wrap;
+        width: 100%;
+        
+        tg-input-search {
+            flex: 1;
+            margin: 0.25rem;
+            min-width: 150px;
+            width: auto;
+        }
+    }
+
+    .kanban-board {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        
+        .kanban-columns {
+            display: flex;
+            min-width: min-content;
+        }
+        
+        .kanban-column {
+            flex-shrink: 0;
+            margin-right: 0.5rem;
+            min-width: 280px;
+            width: 280px;
+            
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        
+        .kanban-column-header {
+            font-size: 0.875rem;
+            padding: 0.75rem;
+        }
+        
+        .kanban-card {
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            padding: 0.75rem;
+            
+            .card-title {
+                font-size: 0.875rem;
+                line-height: 1.4;
+            }
+            
+            .card-ref {
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+    .kanban-swimlane {
+        margin-bottom: 1rem;
+        
+        .swimlane-header {
+            font-size: 0.875rem;
+            padding: 0.75rem 0.5rem;
+        }
+    }
+}
+
+/* ========================================
+   Touch Enhancements
+   ======================================== */
+
+@include mobile {
+    /* Larger tap targets for better touch interaction */
+    button,
+    .button,
+    .btn,
+    a.button-like {
+        @include touch-friendly;
+    }
+    
+    /* Improved checkbox and radio buttons */
+    input[type="checkbox"],
+    input[type="radio"] {
+        height: 20px;
+        width: 20px;
+    }
+    
+    /* Better form inputs */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    textarea,
+    select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 0.75rem;
+    }
+    
+    /* Improved dropdown menus */
+    .dropdown-menu,
+    .context-menu {
+        max-height: 50vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        
+        .menu-item {
+            @include touch-friendly;
+            font-size: 0.875rem;
+        }
+    }
+}
+
+/* ========================================
+   Landscape Mobile Adjustments
+   ======================================== */
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .issue-header,
+    .kanban-header {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .mobile-filter-drawer {
+        max-width: 320px;
+    }
+    
+    .kanban-board {
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+    }
+}
+
+/* ========================================
+   Small Mobile Devices (< 375px)
+   ======================================== */
+
+@media screen and (max-width: 374px) {
+    .issue-header,
+    .kanban-header {
+        .btn-small {
+            font-size: 0.75rem;
+            padding: 0.5rem;
+        }
+    }
+    
+    .mobile-filter-drawer {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .kanban-column {
+        min-width: 260px !important;
+        width: 260px !important;
+    }
+    
+    .issues-table table {
+        min-width: 500px;
+    }
+}
+
+/* ========================================
+   Print Styles (hide mobile-specific elements)
+   ======================================== */
+
+@media print {
+    .mobile-filter-toggle,
+    .mobile-filter-drawer,
+    .mobile-filter-overlay {
+        display: none !important;
+    }
+}
