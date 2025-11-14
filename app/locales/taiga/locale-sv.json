@@ -1113,6 +1113,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI-förslag",
+            "PROMPT_PLACEHOLDER": "Beskriv användarberättelsen du vill skriva",
+            "PROMPT_HINT": "Vänligen ge en detaljerad beskrivning för att generera bättre förslag",
+            "FETCH_BUTTON": "Hämta förslag",
+            "GENERATING": "Genererar",
+            "CANCEL_BUTTON": "Avbryt",
+            "CONFIRM_OVERWRITE_TITLE": "Skriv över befintligt innehåll?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI kommer att skriva över ditt befintliga innehåll. Vill du fortsätta?",
+            "CONFIRM_CONTINUE": "Fortsätt",
+            "CONFIRM_CANCEL": "Avbryt"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Är du säker på att du vill radera kontot?",
             "CANCEL": "Tillbaka till inställningar",

@@ -1113,6 +1113,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "הצעות AI",
+            "PROMPT_PLACEHOLDER": "תאר את סיפור המשתמש שברצונך לנסח",
+            "PROMPT_HINT": "נא לספק תיאור מפורט כדי ליצור הצעות טובות יותר",
+            "FETCH_BUTTON": "קבל הצעה",
+            "GENERATING": "יוצר",
+            "CANCEL_BUTTON": "ביטול",
+            "CONFIRM_OVERWRITE_TITLE": "האם לדרוס את התוכן הקיים?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI ידרוס את התוכן הקיים שלך. האם ברצונך להמשיך?",
+            "CONFIRM_CONTINUE": "המשך",
+            "CONFIRM_CANCEL": "ביטול"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "האם אתה בטוח שברצונך למחוק את פרוייקט הטאיגה שלך?",
             "CANCEL": "חזור להגדרות",

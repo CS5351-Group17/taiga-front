@@ -1139,6 +1139,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "Sugestie AI",
+            "PROMPT_PLACEHOLDER": "Opisz historię użytkownika, którą chcesz napisać",
+            "PROMPT_HINT": "Podaj szczegółowy opis, aby wygenerować lepsze sugestie",
+            "FETCH_BUTTON": "Pobierz sugestię",
+            "GENERATING": "Generowanie",
+            "CANCEL_BUTTON": "Anuluj",
+            "CONFIRM_OVERWRITE_TITLE": "Nadpisać istniejącą treść?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI nadpisze twoją istniejącą treść. Czy chcesz kontynuować?",
+            "CONFIRM_CONTINUE": "Kontynuuj",
+            "CONFIRM_CANCEL": "Anuluj"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Czy na pewno chcesz usunąć swoje konto z Taiga?",
             "CANCEL": "Powrót do ustawień",

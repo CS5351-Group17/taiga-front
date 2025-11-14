@@ -1139,6 +1139,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI-forslag",
+            "PROMPT_PLACEHOLDER": "Beskriv brukerhistorien du vil utarbeide",
+            "PROMPT_HINT": "Vennligst gi en detaljert beskrivelse for å generere bedre forslag",
+            "FETCH_BUTTON": "Hent forslag",
+            "GENERATING": "Genererer",
+            "CANCEL_BUTTON": "Avbryt",
+            "CONFIRM_OVERWRITE_TITLE": "Overskriv eksisterende innhold?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI vil overskrive ditt eksisterende innhold. Vil du fortsette?",
+            "CONFIRM_CONTINUE": "Fortsett",
+            "CONFIRM_CANCEL": "Avbryt"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Er du sikker på at du vil slette din Taiga konto?",
             "CANCEL": "Tilbake til instillinger",

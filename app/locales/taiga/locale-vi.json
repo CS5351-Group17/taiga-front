@@ -1113,6 +1113,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "Đề xuất AI",
+            "PROMPT_PLACEHOLDER": "Mô tả câu chuyện người dùng bạn muốn soạn thảo",
+            "PROMPT_HINT": "Vui lòng cung cấp mô tả chi tiết để tạo đề xuất tốt hơn",
+            "FETCH_BUTTON": "Lấy đề xuất",
+            "GENERATING": "Đang tạo",
+            "CANCEL_BUTTON": "Hủy",
+            "CONFIRM_OVERWRITE_TITLE": "Ghi đè nội dung hiện có?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI sẽ ghi đè nội dung hiện có của bạn. Bạn có muốn tiếp tục không?",
+            "CONFIRM_CONTINUE": "Tiếp tục",
+            "CONFIRM_CANCEL": "Hủy"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Bạn có chắn chắn muốn xóa tài khoản Taiga?",
             "CANCEL": "Quay lại cài đặt",

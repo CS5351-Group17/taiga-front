@@ -85,16 +85,16 @@ form(ng-if="lightboxOpen")
                     ng-class="{'ai-loading-glass': aiHelper.glassEffect}"
                 )
                     .ai-helper-header
-                        label.ai-helper-title(for="ai-helper-input") AI suggestions (optional)
+                        label.ai-helper-title(for="ai-helper-input" translate="LIGHTBOX.AI_HELPER.TITLE")
                         button.btn.btn-small.ai-helper-button(
                             type="button"
                             ng-click="onAiSuggestionClick()"
                             ng-disabled="aiHelper.loading || !aiHelper.prompt"
                             ng-class="{'ai-loading': aiHelper.loading}"
                         )
-                            span(ng-if="!aiHelper.loading") Fetch suggestion
+                            span(ng-if="!aiHelper.loading" translate="LIGHTBOX.AI_HELPER.FETCH_BUTTON")
                             span(ng-if="aiHelper.loading") 
-                                span.ai-loading-text Generating
+                                span.ai-loading-text(translate="LIGHTBOX.AI_HELPER.GENERATING")
                                 span.ai-loading-dots
                                     span.dot
                                     span.dot
@@ -102,22 +102,27 @@ form(ng-if="lightboxOpen")
                     textarea#ai-helper-input.ai-helper-input(
                         rows="3"
                         ng-model="aiHelper.prompt"
-                        placeholder="Describe the user story you want to draft"
+                        placeholder="{{ 'LIGHTBOX.AI_HELPER.PROMPT_PLACEHOLDER' | translate }}"
                     )
-                    small.ai-helper-hint Tip: the generated text will be placed in subject and description field below.
+                    small.ai-helper-hint(translate="LIGHTBOX.AI_HELPER.PROMPT_HINT")
                     .ai-helper-confirm(ng-if="aiHelper.confirmVisible")
-                        p.ai-helper-confirm-text AI suggestions will overwrite your current subject and description. Continue?
+                        p.ai-helper-confirm-text
+                            strong(translate="LIGHTBOX.AI_HELPER.CONFIRM_OVERWRITE_TITLE")
+                            br
+                            span(translate="LIGHTBOX.AI_HELPER.CONFIRM_OVERWRITE_MESSAGE")
                         .ai-helper-confirm-actions
                             button.btn.btn-small.btn-primary(
                                 type="button"
                                 ng-click="confirmAiSuggestionOverwrite()"
                                 ng-disabled="aiHelper.loading"
-                            ) Continue
+                                translate="LIGHTBOX.AI_HELPER.CONFIRM_CONTINUE"
+                            )
                             button.btn.btn-small.btn-link(
                                 type="button"
                                 ng-click="cancelAiSuggestionOverwrite()"
                                 ng-disabled="aiHelper.loading"
-                            ) Cancel
+                                translate="LIGHTBOX.AI_HELPER.CONFIRM_CANCEL"
+                            )
                 // ============================= ADDED BY GITHUB COPILOT END =============================
 
                 fieldset

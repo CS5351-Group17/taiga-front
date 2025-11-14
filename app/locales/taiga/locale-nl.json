@@ -1132,6 +1132,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI-suggesties",
+            "PROMPT_PLACEHOLDER": "Beschrijf het gebruikersverhaal dat je wilt opstellen",
+            "PROMPT_HINT": "Geef een gedetailleerde beschrijving om betere suggesties te genereren",
+            "FETCH_BUTTON": "Suggestie ophalen",
+            "GENERATING": "Genereren",
+            "CANCEL_BUTTON": "Annuleren",
+            "CONFIRM_OVERWRITE_TITLE": "Bestaande inhoud overschrijven?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI zal je bestaande inhoud overschrijven. Wil je doorgaan?",
+            "CONFIRM_CONTINUE": "Doorgaan",
+            "CONFIRM_CANCEL": "Annuleren"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Weet je zeker dat je je Taiga account wilt verwijderen?",
             "CANCEL": "Terug naar instellingen",

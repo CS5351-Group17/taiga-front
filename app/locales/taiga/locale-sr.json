@@ -1113,6 +1113,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI predlozi",
+            "PROMPT_PLACEHOLDER": "Opišite korisničku priču koju želite da napišete",
+            "PROMPT_HINT": "Molimo vas da date detaljan opis kako biste dobili bolje predloge",
+            "FETCH_BUTTON": "Preuzmi predlog",
+            "GENERATING": "Generisanje",
+            "CANCEL_BUTTON": "Otkaži",
+            "CONFIRM_OVERWRITE_TITLE": "Prepisati postojeći sadržaj?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI će prepisati vaš postojeći sadržaj. Želite li da nastavite?",
+            "CONFIRM_CONTINUE": "Nastavi",
+            "CONFIRM_CANCEL": "Otkaži"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Да ли сте сигурни да желите да избришете ваш Taiga налог?",
             "CANCEL": "Назад на подешавања",

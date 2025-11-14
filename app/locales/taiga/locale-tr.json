@@ -1139,6 +1139,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI Önerileri",
+            "PROMPT_PLACEHOLDER": "Taslak oluşturmak istediğiniz kullanıcı hikayesini açıklayın",
+            "PROMPT_HINT": "Daha iyi öneriler oluşturmak için lütfen ayrıntılı bir açıklama sağlayın",
+            "FETCH_BUTTON": "Öneri al",
+            "GENERATING": "Oluşturuluyor",
+            "CANCEL_BUTTON": "İptal",
+            "CONFIRM_OVERWRITE_TITLE": "Mevcut içeriğin üzerine yazılsın mı?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI mevcut içeriğinizin üzerine yazacak. Devam etmek istiyor musunuz?",
+            "CONFIRM_CONTINUE": "Devam et",
+            "CONFIRM_CANCEL": "İptal"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Taiga hesabınızı silmek istediğinizden emin misiniz?",
             "CANCEL": "Ayarlara dön",

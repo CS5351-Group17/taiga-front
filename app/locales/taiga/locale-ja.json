@@ -1132,6 +1132,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI提案",
+            "PROMPT_PLACEHOLDER": "作成したいユーザーストーリーを説明してください",
+            "PROMPT_HINT": "より良い提案を生成するために、詳細な説明を提供してください",
+            "FETCH_BUTTON": "提案を取得",
+            "GENERATING": "生成中",
+            "CANCEL_BUTTON": "キャンセル",
+            "CONFIRM_OVERWRITE_TITLE": "既存のコンテンツを上書きしますか？",
+            "CONFIRM_OVERWRITE_MESSAGE": "AIは既存のコンテンツを上書きします。続行しますか？",
+            "CONFIRM_CONTINUE": "続行",
+            "CONFIRM_CANCEL": "キャンセル"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "本当にあなたのTaigaアカウントを削除してもよろしいですか？",
             "CANCEL": "設定に戻る",

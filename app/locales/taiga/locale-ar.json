@@ -1114,6 +1114,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "اقتراحات الذكاء الاصطناعي",
+            "PROMPT_PLACEHOLDER": "صف قصة المستخدم التي تريد صياغتها",
+            "PROMPT_HINT": "يرجى تقديم وصف تفصيلي للحصول على اقتراحات أفضل",
+            "FETCH_BUTTON": "الحصول على اقتراح",
+            "GENERATING": "جاري الإنشاء",
+            "CANCEL_BUTTON": "إلغاء",
+            "CONFIRM_OVERWRITE_TITLE": "هل تريد الكتابة فوق المحتوى الموجود؟",
+            "CONFIRM_OVERWRITE_MESSAGE": "سيقوم الذكاء الاصطناعي بالكتابة فوق المحتوى الموجود. هل تريد المتابعة؟",
+            "CONFIRM_CONTINUE": "متابعة",
+            "CONFIRM_CANCEL": "إلغاء"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Are you sure you want to delete your Taiga account?",
             "CANCEL": "Back to settings",

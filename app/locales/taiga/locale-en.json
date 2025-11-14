@@ -1134,6 +1134,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI Suggestions",
+            "PROMPT_PLACEHOLDER": "Describe the user story you want to draft",
+            "PROMPT_HINT": "Please provide a detailed description to generate better suggestions",
+            "FETCH_BUTTON": "Fetch suggestion",
+            "GENERATING": "Generating",
+            "CANCEL_BUTTON": "Cancel",
+            "CONFIRM_OVERWRITE_TITLE": "Overwrite Existing Content?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI will overwrite your existing content. Do you want to continue?",
+            "CONFIRM_CONTINUE": "Continue",
+            "CONFIRM_CANCEL": "Cancel"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Are you sure you want to delete your Taiga account?",
             "CANCEL": "Back to settings",

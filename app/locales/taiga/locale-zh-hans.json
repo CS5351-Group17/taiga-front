@@ -1120,6 +1120,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI 建议",
+            "PROMPT_PLACEHOLDER": "描述您想要起草的用户故事",
+            "PROMPT_HINT": "请提供详细描述以生成更好的建议",
+            "FETCH_BUTTON": "获取建议",
+            "GENERATING": "生成中",
+            "CANCEL_BUTTON": "取消",
+            "CONFIRM_OVERWRITE_TITLE": "覆盖现有内容？",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI 将覆盖您已填写的内容，是否继续？",
+            "CONFIRM_CONTINUE": "继续",
+            "CONFIRM_CANCEL": "取消"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "你确定要删除Taiga账户吗？",
             "CANCEL": "返回设置",

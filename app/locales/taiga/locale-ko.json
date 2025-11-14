@@ -1113,6 +1113,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI 제안",
+            "PROMPT_PLACEHOLDER": "작성하려는 사용자 스토리를 설명하세요",
+            "PROMPT_HINT": "더 나은 제안을 생성하기 위해 자세한 설명을 제공해주세요",
+            "FETCH_BUTTON": "제안 가져오기",
+            "GENERATING": "생성 중",
+            "CANCEL_BUTTON": "취소",
+            "CONFIRM_OVERWRITE_TITLE": "기존 콘텐츠를 덮어쓰시겠습니까?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI가 기존 콘텐츠를 덮어씁니다. 계속하시겠습니까?",
+            "CONFIRM_CONTINUE": "계속",
+            "CONFIRM_CANCEL": "취소"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "타이가 계정을 정말로 삭제하시겠어요?",
             "CANCEL": "설정으로 돌아가기",

@@ -1113,6 +1113,18 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI ieteikumi",
+            "PROMPT_PLACEHOLDER": "Aprakstiet lietotāja stāstu, ko vēlaties izveidot",
+            "PROMPT_HINT": "Lūdzu, sniedziet detalizētu aprakstu, lai ģenerētu labākus ieteikumus",
+            "FETCH_BUTTON": "Iegūt ieteikumu",
+            "GENERATING": "Ģenerē",
+            "CANCEL_BUTTON": "Atcelt",
+            "CONFIRM_OVERWRITE_TITLE": "Pārrakstīt esošo saturu?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI pārrakstīs jūsu esošo saturu. Vai vēlaties turpināt?",
+            "CONFIRM_CONTINUE": "Turpināt",
+            "CONFIRM_CANCEL": "Atcelt"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Patiesi vēlaties dzēst savu Taigas kontu?",
             "CANCEL": "Atpakaļ uz iestatījumiem",
