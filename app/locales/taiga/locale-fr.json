@@ -1149,7 +1149,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Écraser le contenu existant ?",
             "CONFIRM_OVERWRITE_MESSAGE": "L'IA écrasera votre contenu existant. Voulez-vous continuer ?",
             "CONFIRM_CONTINUE": "Continuer",
-            "CONFIRM_CANCEL": "Annuler"
+            "CONFIRM_CANCEL": "Annuler",
+            "SUCCESS": "Contenu IA généré avec succès",
+            "ERROR_ALL_EMPTY": "L'IA n'a pas pu générer de contenu. Veuillez essayer avec une description plus détaillée.",
+            "ERROR_PARTIAL_CONTENT": "L'IA a généré un contenu partiel. Manquant : {{fields}}",
+            "FIELD_SUBJECT": "Sujet",
+            "FIELD_DESCRIPTION": "Description",
+            "FIELD_TAGS": "Étiquettes"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Êtes-vous sûr·e de vouloir supprimer votre compte Taiga ?",

@@ -1149,7 +1149,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Перезаписати існуючий вміст?",
             "CONFIRM_OVERWRITE_MESSAGE": "ШІ перезапише ваш існуючий вміст. Продовжити?",
             "CONFIRM_CONTINUE": "Продовжити",
-            "CONFIRM_CANCEL": "Скасувати"
+            "CONFIRM_CANCEL": "Скасувати",
+            "SUCCESS": "Вміст ШІ успішно створено",
+            "ERROR_ALL_EMPTY": "ШІ не вдалося створити вміст. Спробуйте з більш детальним описом.",
+            "ERROR_PARTIAL_CONTENT": "ШІ створив частковий вміст. Відсутнє: {{fields}}",
+            "FIELD_SUBJECT": "Тема",
+            "FIELD_DESCRIPTION": "Опис",
+            "FIELD_TAGS": "Теги"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Ви дійсно хочете видалити обліковий запис Taiga?",

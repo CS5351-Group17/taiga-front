@@ -1123,7 +1123,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Prepisati postojeći sadržaj?",
             "CONFIRM_OVERWRITE_MESSAGE": "AI će prepisati vaš postojeći sadržaj. Želite li da nastavite?",
             "CONFIRM_CONTINUE": "Nastavi",
-            "CONFIRM_CANCEL": "Otkaži"
+            "CONFIRM_CANCEL": "Otkaži",
+            "SUCCESS": "AI sadržaj uspešno generisan",
+            "ERROR_ALL_EMPTY": "AI nije uspeo da generiše sadržaj. Pokušajte sa detaljnijim opisom.",
+            "ERROR_PARTIAL_CONTENT": "AI je generisao delimičan sadržaj. Nedostaje: {{fields}}",
+            "FIELD_SUBJECT": "Tema",
+            "FIELD_DESCRIPTION": "Opis",
+            "FIELD_TAGS": "Oznake"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Да ли сте сигурни да желите да избришете ваш Taiga налог?",

@@ -1149,7 +1149,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Vorhandenen Inhalt überschreiben?",
             "CONFIRM_OVERWRITE_MESSAGE": "Die KI wird Ihren vorhandenen Inhalt überschreiben. Möchten Sie fortfahren?",
             "CONFIRM_CONTINUE": "Fortfahren",
-            "CONFIRM_CANCEL": "Abbrechen"
+            "CONFIRM_CANCEL": "Abbrechen",
+            "SUCCESS": "KI-Inhalt erfolgreich generiert",
+            "ERROR_ALL_EMPTY": "KI konnte keinen Inhalt generieren. Bitte versuchen Sie es mit einer detaillierteren Beschreibung.",
+            "ERROR_PARTIAL_CONTENT": "KI hat teilweise Inhalte generiert. Fehlend: {{fields}}",
+            "FIELD_SUBJECT": "Betreff",
+            "FIELD_DESCRIPTION": "Beschreibung",
+            "FIELD_TAGS": "Tags"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Sind Sie sicher, dass Sie Ihr Taiga Benutzerkonto löschen wollen?",

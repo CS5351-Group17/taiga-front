@@ -1149,7 +1149,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Sobreescriure el contingut existent?",
             "CONFIRM_OVERWRITE_MESSAGE": "La IA sobreescriurà el teu contingut existent. Vols continuar?",
             "CONFIRM_CONTINUE": "Continuar",
-            "CONFIRM_CANCEL": "Cancel·lar"
+            "CONFIRM_CANCEL": "Cancel·lar",
+            "SUCCESS": "Contingut d'IA generat correctament",
+            "ERROR_ALL_EMPTY": "La IA no ha pogut generar cap contingut. Si us plau, prova amb una descripció més detallada.",
+            "ERROR_PARTIAL_CONTENT": "La IA ha generat contingut parcial. Manca: {{fields}}",
+            "FIELD_SUBJECT": "Assumpte",
+            "FIELD_DESCRIPTION": "Descripció",
+            "FIELD_TAGS": "Etiquetes"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Segur que voleu eliminar el vostre compte de Taiga?",

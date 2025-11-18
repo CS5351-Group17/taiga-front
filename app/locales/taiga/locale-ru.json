@@ -1129,7 +1129,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Перезаписать существующий контент?",
             "CONFIRM_OVERWRITE_MESSAGE": "ИИ перезапишет ваш существующий контент. Продолжить?",
             "CONFIRM_CONTINUE": "Продолжить",
-            "CONFIRM_CANCEL": "Отмена"
+            "CONFIRM_CANCEL": "Отмена",
+            "SUCCESS": "Содержимое ИИ успешно создано",
+            "ERROR_ALL_EMPTY": "ИИ не смог создать контент. Попробуйте с более подробным описанием.",
+            "ERROR_PARTIAL_CONTENT": "ИИ создал частичный контент. Отсутствует: {{fields}}",
+            "FIELD_SUBJECT": "Тема",
+            "FIELD_DESCRIPTION": "Описание",
+            "FIELD_TAGS": "Теги"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Вы уверены, что хотите удалить ваш аккаунт?",

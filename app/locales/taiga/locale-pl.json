@@ -1149,7 +1149,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Nadpisać istniejącą treść?",
             "CONFIRM_OVERWRITE_MESSAGE": "AI nadpisze twoją istniejącą treść. Czy chcesz kontynuować?",
             "CONFIRM_CONTINUE": "Kontynuuj",
-            "CONFIRM_CANCEL": "Anuluj"
+            "CONFIRM_CANCEL": "Anuluj",
+            "SUCCESS": "Treść AI została pomyślnie wygenerowana",
+            "ERROR_ALL_EMPTY": "AI nie mogła wygenerować treści. Spróbuj z bardziej szczegółowym opisem.",
+            "ERROR_PARTIAL_CONTENT": "AI wygenerowała częściową treść. Brakuje: {{fields}}",
+            "FIELD_SUBJECT": "Temat",
+            "FIELD_DESCRIPTION": "Opis",
+            "FIELD_TAGS": "Tagi"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Czy na pewno chcesz usunąć swoje konto z Taiga?",

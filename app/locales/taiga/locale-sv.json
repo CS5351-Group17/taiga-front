@@ -1123,7 +1123,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Skriv över befintligt innehåll?",
             "CONFIRM_OVERWRITE_MESSAGE": "AI kommer att skriva över ditt befintliga innehåll. Vill du fortsätta?",
             "CONFIRM_CONTINUE": "Fortsätt",
-            "CONFIRM_CANCEL": "Avbryt"
+            "CONFIRM_CANCEL": "Avbryt",
+            "SUCCESS": "AI-innehåll genererat framgångsrikt",
+            "ERROR_ALL_EMPTY": "AI kunde inte generera innehåll. Försök med en mer detaljerad beskrivning.",
+            "ERROR_PARTIAL_CONTENT": "AI genererade delvis innehåll. Saknas: {{fields}}",
+            "FIELD_SUBJECT": "Ämne",
+            "FIELD_DESCRIPTION": "Beskrivning",
+            "FIELD_TAGS": "Taggar"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Är du säker på att du vill radera kontot?",

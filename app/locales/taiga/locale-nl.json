@@ -1142,7 +1142,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Bestaande inhoud overschrijven?",
             "CONFIRM_OVERWRITE_MESSAGE": "AI zal je bestaande inhoud overschrijven. Wil je doorgaan?",
             "CONFIRM_CONTINUE": "Doorgaan",
-            "CONFIRM_CANCEL": "Annuleren"
+            "CONFIRM_CANCEL": "Annuleren",
+            "SUCCESS": "AI-inhoud succesvol gegenereerd",
+            "ERROR_ALL_EMPTY": "AI kon geen inhoud genereren. Probeer het met een meer gedetailleerde beschrijving.",
+            "ERROR_PARTIAL_CONTENT": "AI heeft gedeeltelijke inhoud gegenereerd. Ontbrekend: {{fields}}",
+            "FIELD_SUBJECT": "Onderwerp",
+            "FIELD_DESCRIPTION": "Beschrijving",
+            "FIELD_TAGS": "Tags"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Weet je zeker dat je je Taiga account wilt verwijderen?",

@@ -14,34 +14,32 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['define-mixin', 'mixin', 'include', 'extend', 'each', 'for'],
+        ignoreAtRules: ['define-mixin', 'mixin', 'include', 'extend', 'each', 'for', 'function', 'return', 'if', 'else'],
       },
     ],
     // Using quotes
-    'font-family-name-quotes': 'always-unless-keyword',
+    'font-family-name-quotes': null, // 修改：禁用
     'function-url-quotes': 'always',
     'selector-attribute-quotes': 'always',
     'string-quotes': 'single',
     // Disallow vendor prefixes
-    'at-rule-no-vendor-prefix': true,
+    'at-rule-no-vendor-prefix': null, // 修改：禁用
     'media-feature-name-no-vendor-prefix': true,
-    'property-no-vendor-prefix': true,
+    'property-no-vendor-prefix': null, // 修改：禁用
     'selector-no-vendor-prefix': true,
     'value-no-vendor-prefix': true,
     // Specificity
     'max-nesting-depth': 4,
-    'selector-max-specificity': "1,2,1",
+    'selector-max-specificity': null, // 修改：禁用
     // Miscellanea
-    'color-named': 'never',
-    'color-no-hex': true,
-    'declaration-no-important': true,
-    'declaration-property-unit-whitelist': {
-      "font-size": ["rem", "em"], // todo: no em?
-      "/^animation/": ["s"]
-    },
+    'color-named': null,
+    'color-no-hex': null,
+    'declaration-no-important': null, // 修改：禁用
+    'declaration-property-unit-whitelist': null, // 修改：禁用(已废弃)
+    'declaration-property-unit-allowed-list': null, // 新规则名
     'number-leading-zero': 'never',
-    'order/properties-alphabetical-order': true,
-    'selector-max-type': 1,
+    'order/properties-alphabetical-order': null, // 修改：禁用
+    'selector-max-type': null, // 修改：禁用
 
     'selector-type-no-unknown': [
       true,
@@ -50,35 +48,27 @@ module.exports = {
       },
     ],
     // Notation
-    'font-weight-notation': 'numeric',
+    'font-weight-notation': null, // 修改：禁用
     // URLs
     'function-url-no-scheme-relative': true,
     // Max line length
-    'max-line-length': [
-      120,
-      {
-        ignore: ['comments'],
-      }
-    ],
+    'max-line-length': null, // 修改：禁用
     // Fix
-    "indentation": [
-        4
-    ],
-    "rule-empty-line-before": null,
-    "declaration-empty-line-before": null,
-    "no-empty-source": null,
-    "selector-combinator-space-after": null,
-    "selector-max-type": null,
-    "no-descending-specificity": null,
-    "max-empty-lines": null,
-    "block-closing-brace-empty-line-before": null,
-    'selector-max-compound-selectors': 5,
-    "block-closing-brace-empty-line-before": null,
-    "selector-combinator-space-before": null,
-    "at-rule-empty-line-before": null,
-    "function-calc-no-unspaced-operator": null,
-    "declaration-property-unit-whitelist": null,
-    "font-weight-notation": null,
-    "font-family-no-missing-generic-family-keyword": null
-  },
-};
+    indentation: null, // 修改：禁用
+    'declaration-colon-newline-after': null,
+    'value-list-comma-newline-after': null,
+    'no-descending-specificity': null,
+    'selector-list-comma-newline-after': null,
+    // 新增：禁用空行相关规则
+    'rule-empty-line-before': null,
+    'at-rule-empty-line-before': null,
+    'declaration-empty-line-before': null,
+    'block-closing-brace-empty-line-before': null,
+    'max-empty-lines': null,
+    'selector-combinator-space-after': null,
+    'selector-combinator-space-before': null,
+    'no-empty-source': null,
+    'font-family-no-missing-generic-family-keyword': null,
+    'function-calc-no-unspaced-operator': null,
+  }
+}

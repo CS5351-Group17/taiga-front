@@ -1124,7 +1124,13 @@
             "CONFIRM_OVERWRITE_TITLE": "هل تريد الكتابة فوق المحتوى الموجود؟",
             "CONFIRM_OVERWRITE_MESSAGE": "سيقوم الذكاء الاصطناعي بالكتابة فوق المحتوى الموجود. هل تريد المتابعة؟",
             "CONFIRM_CONTINUE": "متابعة",
-            "CONFIRM_CANCEL": "إلغاء"
+            "CONFIRM_CANCEL": "إلغاء",
+            "SUCCESS": "تم إنشاء محتوى الذكاء الاصطناعي بنجاح",
+            "ERROR_ALL_EMPTY": "فشل الذكاء الاصطناعي في إنشاء أي محتوى. يرجى المحاولة بوصف أكثر تفصيلاً.",
+            "ERROR_PARTIAL_CONTENT": "أنشأ الذكاء الاصطناعي محتوى جزئيًا. مفقود: {{fields}}",
+            "FIELD_SUBJECT": "الموضوع",
+            "FIELD_DESCRIPTION": "الوصف",
+            "FIELD_TAGS": "الوسوم"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Are you sure you want to delete your Taiga account?",

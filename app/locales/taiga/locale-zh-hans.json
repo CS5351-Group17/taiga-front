@@ -1130,7 +1130,13 @@
             "CONFIRM_OVERWRITE_TITLE": "覆盖现有内容？",
             "CONFIRM_OVERWRITE_MESSAGE": "AI 将覆盖您已填写的内容，是否继续？",
             "CONFIRM_CONTINUE": "继续",
-            "CONFIRM_CANCEL": "取消"
+            "CONFIRM_CANCEL": "取消",
+            "SUCCESS": "AI 内容生成成功",
+            "ERROR_ALL_EMPTY": "AI 未能生成任何内容，请尝试提供更详细的描述",
+            "ERROR_PARTIAL_CONTENT": "AI 生成了部分内容，缺失：{{fields}}",
+            "FIELD_SUBJECT": "标题",
+            "FIELD_DESCRIPTION": "描述",
+            "FIELD_TAGS": "标签"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "你确定要删除Taiga账户吗？",

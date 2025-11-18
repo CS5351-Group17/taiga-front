@@ -1123,7 +1123,13 @@
             "CONFIRM_OVERWRITE_TITLE": "האם לדרוס את התוכן הקיים?",
             "CONFIRM_OVERWRITE_MESSAGE": "AI ידרוס את התוכן הקיים שלך. האם ברצונך להמשיך?",
             "CONFIRM_CONTINUE": "המשך",
-            "CONFIRM_CANCEL": "ביטול"
+            "CONFIRM_CANCEL": "ביטול",
+            "SUCCESS": "תוכן AI נוצר בהצלחה",
+            "ERROR_ALL_EMPTY": "AI לא הצליח ליצור תוכן. אנא נסה עם תיאור מפורט יותר.",
+            "ERROR_PARTIAL_CONTENT": "AI יצר תוכן חלקי. חסר: {{fields}}",
+            "FIELD_SUBJECT": "נושא",
+            "FIELD_DESCRIPTION": "תיאור",
+            "FIELD_TAGS": "תגיות"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "האם אתה בטוח שברצונך למחוק את פרוייקט הטאיגה שלך?",

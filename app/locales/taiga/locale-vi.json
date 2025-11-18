@@ -1123,7 +1123,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Ghi đè nội dung hiện có?",
             "CONFIRM_OVERWRITE_MESSAGE": "AI sẽ ghi đè nội dung hiện có của bạn. Bạn có muốn tiếp tục không?",
             "CONFIRM_CONTINUE": "Tiếp tục",
-            "CONFIRM_CANCEL": "Hủy"
+            "CONFIRM_CANCEL": "Hủy",
+            "SUCCESS": "Nội dung AI được tạo thành công",
+            "ERROR_ALL_EMPTY": "AI không thể tạo nội dung. Vui lòng thử với mô tả chi tiết hơn.",
+            "ERROR_PARTIAL_CONTENT": "AI đã tạo nội dung một phần. Thiếu: {{fields}}",
+            "FIELD_SUBJECT": "Chủ đề",
+            "FIELD_DESCRIPTION": "Mô tả",
+            "FIELD_TAGS": "Thẻ"
         },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Bạn có chắn chắn muốn xóa tài khoản Taiga?",

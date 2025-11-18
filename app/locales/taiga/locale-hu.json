@@ -1002,7 +1002,13 @@
             "CONFIRM_OVERWRITE_TITLE": "Felülírja a meglévő tartalmat?",
             "CONFIRM_OVERWRITE_MESSAGE": "Az AI felülírja a meglévő tartalmadat. Folytatod?",
             "CONFIRM_CONTINUE": "Folytatás",
-            "CONFIRM_CANCEL": "Mégse"
+            "CONFIRM_CANCEL": "Mégse",
+            "SUCCESS": "AI tartalom sikeresen létrehozva",
+            "ERROR_ALL_EMPTY": "Az AI nem tudott tartalmat létrehozni. Kérjük, próbálja meg részletesebb leírással.",
+            "ERROR_PARTIAL_CONTENT": "Az AI részleges tartalmat hozott létre. Hiányzik: {{fields}}",
+            "FIELD_SUBJECT": "Tárgy",
+            "FIELD_DESCRIPTION": "Leírás",
+            "FIELD_TAGS": "Címkék"
         },
         "DELETE_PROJECT": {
             "SUBTITLE": "Minden projektadat (user storyk, feladatok, problémák, sprintek és wiki oldalak) el fognak veszni! :(",
