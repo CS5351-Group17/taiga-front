@@ -834,7 +834,7 @@ $confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
                         type: data.project.default_issue_type
                     }
             }
-        }
+        } 
 
         $scope.setMode = (value) ->
             $scope.mode = value
