@@ -79,7 +79,6 @@ form(ng-if="lightboxOpen")
                         on-delete-tag="deleteTag(tag)"
                     )
 
-                // ============================ ADDED BY GITHUB COPILOT START ============================
                 fieldset.ai-helper-fieldset(
                     ng-if="objType == 'us'"
                     ng-class="{'ai-loading-glass': aiHelper.glassEffect}"
@@ -123,7 +122,6 @@ form(ng-if="lightboxOpen")
                                 ng-disabled="aiHelper.loading"
                                 translate="LIGHTBOX.AI_HELPER.CONFIRM_CANCEL"
                             )
-                // ============================= ADDED BY GITHUB COPILOT END =============================
 
                 fieldset
                     textarea.description(

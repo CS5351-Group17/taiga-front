@@ -537,7 +537,6 @@ $confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
         attachmentsToAdd = Immutable.List()
         attachmentsToDelete = Immutable.List()
 
-        ### ============================ ADDED BY GITHUB COPILOT START ============================ ###
         $scope.aiHelper =
             prompt: ""
             loading: false
@@ -757,7 +756,6 @@ $confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
         $scope.cancelAiSuggestionOverwrite = ->
             return if $scope.aiHelper.loading
             hideAiConfirmation()
-        ### ============================= ADDED BY GITHUB COPILOT END ============================= ###
 
         schemas = {
             us: {
