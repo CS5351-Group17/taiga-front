@@ -22,21 +22,15 @@ class AiAnalysisService extends taiga.Service
     analyzeIssues: (projectId, issues) ->
         deferred = @q.defer()
 
-        # TODO: Replace with actual API call when backend is ready
-        # Example API implementation:
-        # @http.post(@.apiUrl, {
-        #     project_id: projectId,
-        #     issue_ids: _.map(issues, (issue) -> issue.id),
-        #     issues: @._formatIssuesForApi(issues)
-        # }).then (response) =>
-        #     deferred.resolve(response.data.results)
-        # .catch (error) =>
-        #     deferred.reject(error)
-
-        @timeout =>
-            results = @._generateMockAnalysis(issues)
+        @http.post(@.apiUrl, {
+            project_id: projectId,
+            issue_ids: _.map(issues, (issue) -> issue.id),
+            issues: @._formatIssuesForApi(issues)
+        }).then (response) =>
+            results = @._transformBackendResponse(response.data.results)
             deferred.resolve(results)
-        , 1500
+        .catch (error) =>
+            deferred.reject(error)
 
         return deferred.promise
 
@@ -52,6 +46,24 @@ class AiAnalysisService extends taiga.Service
                 severity: issue.severity?.name or "",
                 status: issue.status?.name or "",
                 tags: issue.tags or []
+            }
+
+    _transformBackendResponse: (backendResults) ->
+        return _.map backendResults, (result) ->
+            return {
+                issueId: result.issue_id,
+                issueRef: "##{result.issue_ref}",
+                subject: result.subject,
+                analysis: {
+                    priority: result.analysis.priority,
+                    priorityReason: result.analysis.priority_reason,
+                    type: result.analysis.type,
+                    severity: result.analysis.severity,
+                    description: result.analysis.description,
+                    relatedModules: result.analysis.related_modules,
+                    solutions: result.analysis.solutions,
+                    confidence: result.analysis.confidence
+                }
             }
 
     _generateMockAnalysis: (issues) ->
