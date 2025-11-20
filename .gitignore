@@ -17,3 +17,46 @@ e2e/screenshots/
 e2e/reports/
 app/modules/compile-modules/
 yarn.lock
+
+# macOS
+.DS_Store
+
+# Local config (不要提交包含敏感信息的配置)
+conf/conf.json
+
+# Development notes
+myDoc/
+
+# DevContainer 中的文档（保留 devcontainer.json 配置文件）
+.devcontainer/*.md
+.devcontainer/.DS_Store
+.devcontainer/*.back
+
+# Project documentation files (keep locally, don't commit)
+# 自定义文档（排除项目中自己创建的 Markdown 文档）
+# 保留官方文档：README.md, CHANGELOG.md, CONTRIBUTING.md
+AI_ANALYSIS_OVERVIEW.md
+AI_分析功能文档.md
+TESTING.md
+国际化增强_实施总结.md
+国际化增强改动说明.md
+推送代码到团队仓库指南.md
+测试指南_*.md
+MOBILE_OPTIMIZATION*.md
+UNIT_TESTING_GUIDE.md
+UNIT_TESTS_REPORT.md
+PR_DESCRIPTION_EN.md
+DEV_ENVIRONMENT_SETUP.md
+# 测试脚本和开发脚本
+test-*.sh
+verify-*.sh
+push-*.sh
+setup-*.sh
+deploy-*.sh
+
+# 项目检查文档和临时文档
+PRE_COMMIT_CHECKLIST.md
+AUTOMATED_TESTING_DOCUMENTATION.md
+BACKEND_INTEGRATION_CHANGES.md
+INTEGRATION_TESTING_GUIDE.md
+FINAL_VERIFICATION_REPORT.md
