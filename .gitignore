@@ -47,7 +47,16 @@ UNIT_TESTING_GUIDE.md
 UNIT_TESTS_REPORT.md
 PR_DESCRIPTION_EN.md
 DEV_ENVIRONMENT_SETUP.md
-# 测试脚本
-test-ai-analysis.sh
-verify-monitoring.sh
-push-to-team-repo.sh
+# 测试脚本和开发脚本
+test-*.sh
+verify-*.sh
+push-*.sh
+setup-*.sh
+deploy-*.sh
+
+# 项目检查文档和临时文档
+PRE_COMMIT_CHECKLIST.md
+AUTOMATED_TESTING_DOCUMENTATION.md
+BACKEND_INTEGRATION_CHANGES.md
+INTEGRATION_TESTING_GUIDE.md
+FINAL_VERIFICATION_REPORT.md

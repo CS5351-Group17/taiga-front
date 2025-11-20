@@ -6,7 +6,7 @@
  * Copyright (c) 2021-present Kaleidos INC
  */
 
-// AI 分析按钮样式
+// AI Analysis button styles
 .btn-ai-analysis {
     background-color: #2196F3 !important;
     color: white !important;
@@ -40,7 +40,7 @@
     }
 }
 
-// AI 分析 Lightbox 样式
+// AI Analysis Lightbox styles
 .lightbox-ai-analysis {
     display: flex;
     align-items: center;
@@ -317,7 +317,7 @@
     }
 }
 
-// 响应式设计
+// Responsive design
 @media (max-width: 768px) {
     .lightbox-ai-analysis {
         .ai-analysis-content {

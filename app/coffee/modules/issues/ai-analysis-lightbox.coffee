@@ -20,7 +20,7 @@ class AiAnalysisLightboxController
     constructor: (@scope, @rootscope, @lightboxFactory) ->
         @.results = []
         
-        # 监听显示 AI 分析结果的事件
+        # Listen for AI analysis result display events
         @rootscope.$on "aianalysis:show", (event, data) =>
             @.results = data.results
             @scope.$apply() if not @scope.$$phase

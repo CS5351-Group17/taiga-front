@@ -17,7 +17,7 @@ class AiAnalysisService extends taiga.Service
     ]
 
     constructor: (@q, @http, @config, @timeout) ->
-        @.apiUrl = "#{@config.get('api')}/issues/ai-analyze"
+        @.apiUrl = "#{@config.get('api')}issues/ai_analyze"
 
     analyzeIssues: (projectId, issues) ->
         deferred = @q.defer()
