@@ -1125,7 +1125,7 @@
             "CONFIRM_CONTINUE": "계속",
             "CONFIRM_CANCEL": "취소",
             "SUCCESS": "AI 콘텐츠가 성공적으로 생성되었습니다",
-            "ERROR_ALL_EMPTY": "AI가 콘텐츠를 생성하지 못했습니다. 더 자세한 설명으로 시도해주세요.",
+            "ERROR_ALL_EMPTY": "콘텐츠가 생성되지 않았습니다.",
             "ERROR_PARTIAL_CONTENT": "AI가 부분 콘텐츠를 생성했습니다. 누락: {{fields}}",
             "FIELD_SUBJECT": "제목",
             "FIELD_DESCRIPTION": "설명",

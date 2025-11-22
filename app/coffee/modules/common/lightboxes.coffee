@@ -595,7 +595,7 @@ $confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
             return addedAny
 
         requestAiSuggestion = (payload) ->
-            $http.post("/api/v1/userstories/ai-suggestion", payload)
+            $http.post("http://localhost:8000/api/v1/userstories/ai-suggestion", payload)
 
         # 验证AI响应数据
         validateAiResponse = (responseData) ->
@@ -657,11 +657,12 @@ $confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
             $scope.aiHelper.error = null
             hideAiConfirmation()
 
+            #################### prompt -> text
             payload =
-                prompt: $scope.aiHelper.prompt
-                project: $scope.project?.id
-                subject: $scope.obj?.subject
-                description: $scope.obj?.description
+                text: $scope.aiHelper.prompt
+                # project: $scope.project?.id
+                # subject: $scope.obj?.subject
+                # description: $scope.obj?.description
 
             TEST_AI_DELAY_MS = 2000 # increase to simulate slower AI responses while testing
 

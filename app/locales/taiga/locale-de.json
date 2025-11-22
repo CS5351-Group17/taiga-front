@@ -1151,7 +1151,7 @@
             "CONFIRM_CONTINUE": "Fortfahren",
             "CONFIRM_CANCEL": "Abbrechen",
             "SUCCESS": "KI-Inhalt erfolgreich generiert",
-            "ERROR_ALL_EMPTY": "KI konnte keinen Inhalt generieren. Bitte versuchen Sie es mit einer detaillierteren Beschreibung.",
+            "ERROR_ALL_EMPTY": "Kein Inhalt generiert.",
             "ERROR_PARTIAL_CONTENT": "KI hat teilweise Inhalte generiert. Fehlend: {{fields}}",
             "FIELD_SUBJECT": "Betreff",
             "FIELD_DESCRIPTION": "Beschreibung",

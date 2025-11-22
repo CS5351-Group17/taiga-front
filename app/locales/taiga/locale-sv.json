@@ -1125,7 +1125,7 @@
             "CONFIRM_CONTINUE": "Fortsätt",
             "CONFIRM_CANCEL": "Avbryt",
             "SUCCESS": "AI-innehåll genererat framgångsrikt",
-            "ERROR_ALL_EMPTY": "AI kunde inte generera innehåll. Försök med en mer detaljerad beskrivning.",
+            "ERROR_ALL_EMPTY": "Ingen innehåll genererat.",
             "ERROR_PARTIAL_CONTENT": "AI genererade delvis innehåll. Saknas: {{fields}}",
             "FIELD_SUBJECT": "Ämne",
             "FIELD_DESCRIPTION": "Beskrivning",

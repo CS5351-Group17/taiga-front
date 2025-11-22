@@ -1151,7 +1151,7 @@
             "CONFIRM_CONTINUE": "Continuar",
             "CONFIRM_CANCEL": "Cancelar",
             "SUCCESS": "Contenido de IA generado exitosamente",
-            "ERROR_ALL_EMPTY": "La IA no pudo generar ningún contenido. Por favor intenta con una descripción más detallada.",
+            "ERROR_ALL_EMPTY": "No se generó ningún contenido.",
             "ERROR_PARTIAL_CONTENT": "La IA generó contenido parcial. Falta: {{fields}}",
             "FIELD_SUBJECT": "Asunto",
             "FIELD_DESCRIPTION": "Descripción",

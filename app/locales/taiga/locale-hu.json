@@ -1004,7 +1004,7 @@
             "CONFIRM_CONTINUE": "Folytatás",
             "CONFIRM_CANCEL": "Mégse",
             "SUCCESS": "AI tartalom sikeresen létrehozva",
-            "ERROR_ALL_EMPTY": "Az AI nem tudott tartalmat létrehozni. Kérjük, próbálja meg részletesebb leírással.",
+            "ERROR_ALL_EMPTY": "Nem generált tartalmat.",
             "ERROR_PARTIAL_CONTENT": "Az AI részleges tartalmat hozott létre. Hiányzik: {{fields}}",
             "FIELD_SUBJECT": "Tárgy",
             "FIELD_DESCRIPTION": "Leírás",

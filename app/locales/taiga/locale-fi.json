@@ -1125,7 +1125,7 @@
             "CONFIRM_CONTINUE": "Jatka",
             "CONFIRM_CANCEL": "Peruuta",
             "SUCCESS": "AI-sisältö luotu onnistuneesti",
-            "ERROR_ALL_EMPTY": "AI ei pystynyt luomaan sisältöä. Yritä yksityiskohtaisemmalla kuvauksella.",
+            "ERROR_ALL_EMPTY": "Ei sisältöä luotu.",
             "ERROR_PARTIAL_CONTENT": "AI loi osittaisen sisällön. Puuttuu: {{fields}}",
             "FIELD_SUBJECT": "Aihe",
             "FIELD_DESCRIPTION": "Kuvaus",

@@ -1130,7 +1130,7 @@
             "CONFIRM_CONTINUE": "ادامه",
             "CONFIRM_CANCEL": "لغو",
             "SUCCESS": "محتوای هوش مصنوعی با موفقیت ایجاد شد",
-            "ERROR_ALL_EMPTY": "هوش مصنوعی نتوانست محتوایی ایجاد کند. لطفاً با توضیح دقیق‌تری امتحان کنید.",
+            "ERROR_ALL_EMPTY": "محتوایی تولید نشد.",
             "ERROR_PARTIAL_CONTENT": "هوش مصنوعی محتوای جزئی ایجاد کرد. مفقود: {{fields}}",
             "FIELD_SUBJECT": "موضوع",
             "FIELD_DESCRIPTION": "توضیحات",

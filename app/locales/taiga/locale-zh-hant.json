@@ -1142,7 +1142,7 @@
             "CONFIRM_CONTINUE": "繼續",
             "CONFIRM_CANCEL": "取消",
             "SUCCESS": "AI 內容生成成功",
-            "ERROR_ALL_EMPTY": "AI 未能產生任何內容，請嘗試提供更詳細的描述",
+            "ERROR_ALL_EMPTY": "未產生任何內容。",
             "ERROR_PARTIAL_CONTENT": "AI 產生了部分內容，缺失：{{fields}}",
             "FIELD_SUBJECT": "標題",
             "FIELD_DESCRIPTION": "描述",

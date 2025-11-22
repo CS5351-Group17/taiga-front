@@ -1145,7 +1145,7 @@
             "CONFIRM_CONTINUE": "Continue",
             "CONFIRM_CANCEL": "Cancel",
             "SUCCESS": "AI content generated successfully",
-            "ERROR_ALL_EMPTY": "AI failed to generate any content. Please try with a more detailed prompt.",
+            "ERROR_ALL_EMPTY": "No content generated.",
             "ERROR_PARTIAL_CONTENT": "AI generated partial content. Missing: {{fields}}",
             "FIELD_SUBJECT": "Subject",
             "FIELD_DESCRIPTION": "Description",

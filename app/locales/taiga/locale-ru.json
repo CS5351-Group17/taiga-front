@@ -1131,7 +1131,7 @@
             "CONFIRM_CONTINUE": "Продолжить",
             "CONFIRM_CANCEL": "Отмена",
             "SUCCESS": "Содержимое ИИ успешно создано",
-            "ERROR_ALL_EMPTY": "ИИ не смог создать контент. Попробуйте с более подробным описанием.",
+            "ERROR_ALL_EMPTY": "Контент не создан.",
             "ERROR_PARTIAL_CONTENT": "ИИ создал частичный контент. Отсутствует: {{fields}}",
             "FIELD_SUBJECT": "Тема",
             "FIELD_DESCRIPTION": "Описание",

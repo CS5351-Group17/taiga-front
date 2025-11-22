@@ -1144,7 +1144,7 @@
             "CONFIRM_CONTINUE": "Doorgaan",
             "CONFIRM_CANCEL": "Annuleren",
             "SUCCESS": "AI-inhoud succesvol gegenereerd",
-            "ERROR_ALL_EMPTY": "AI kon geen inhoud genereren. Probeer het met een meer gedetailleerde beschrijving.",
+            "ERROR_ALL_EMPTY": "Geen inhoud gegenereerd.",
             "ERROR_PARTIAL_CONTENT": "AI heeft gedeeltelijke inhoud gegenereerd. Ontbrekend: {{fields}}",
             "FIELD_SUBJECT": "Onderwerp",
             "FIELD_DESCRIPTION": "Beschrijving",

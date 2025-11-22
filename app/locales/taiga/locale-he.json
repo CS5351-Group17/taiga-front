@@ -1125,7 +1125,7 @@
             "CONFIRM_CONTINUE": "המשך",
             "CONFIRM_CANCEL": "ביטול",
             "SUCCESS": "תוכן AI נוצר בהצלחה",
-            "ERROR_ALL_EMPTY": "AI לא הצליח ליצור תוכן. אנא נסה עם תיאור מפורט יותר.",
+            "ERROR_ALL_EMPTY": "לא נוצר תוכן.",
             "ERROR_PARTIAL_CONTENT": "AI יצר תוכן חלקי. חסר: {{fields}}",
             "FIELD_SUBJECT": "נושא",
             "FIELD_DESCRIPTION": "תיאור",

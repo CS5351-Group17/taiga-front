@@ -1151,7 +1151,7 @@
             "CONFIRM_CONTINUE": "Jarraitu",
             "CONFIRM_CANCEL": "Ezeztatu",
             "SUCCESS": "AI edukia behar bezala sortu da",
-            "ERROR_ALL_EMPTY": "AIk ezin izan du edukirik sortu. Mesedez, saiatu deskribapen zehatza emanez.",
+            "ERROR_ALL_EMPTY": "Ez da edukirik sortu.",
             "ERROR_PARTIAL_CONTENT": "AIk eduki partziala sortu du. Falta da: {{fields}}",
             "FIELD_SUBJECT": "Gaia",
             "FIELD_DESCRIPTION": "Deskribapena",

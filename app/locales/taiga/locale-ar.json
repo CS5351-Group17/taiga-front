@@ -1126,7 +1126,7 @@
             "CONFIRM_CONTINUE": "متابعة",
             "CONFIRM_CANCEL": "إلغاء",
             "SUCCESS": "تم إنشاء محتوى الذكاء الاصطناعي بنجاح",
-            "ERROR_ALL_EMPTY": "فشل الذكاء الاصطناعي في إنشاء أي محتوى. يرجى المحاولة بوصف أكثر تفصيلاً.",
+            "ERROR_ALL_EMPTY": "لم يتم إنشاء أي محتوى.",
             "ERROR_PARTIAL_CONTENT": "أنشأ الذكاء الاصطناعي محتوى جزئيًا. مفقود: {{fields}}",
             "FIELD_SUBJECT": "الموضوع",
             "FIELD_DESCRIPTION": "الوصف",

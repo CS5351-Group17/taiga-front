@@ -1151,7 +1151,7 @@
             "CONFIRM_CONTINUE": "Продовжити",
             "CONFIRM_CANCEL": "Скасувати",
             "SUCCESS": "Вміст ШІ успішно створено",
-            "ERROR_ALL_EMPTY": "ШІ не вдалося створити вміст. Спробуйте з більш детальним описом.",
+            "ERROR_ALL_EMPTY": "Контент не створено.",
             "ERROR_PARTIAL_CONTENT": "ШІ створив частковий вміст. Відсутнє: {{fields}}",
             "FIELD_SUBJECT": "Тема",
             "FIELD_DESCRIPTION": "Опис",

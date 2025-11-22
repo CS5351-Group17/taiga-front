@@ -1125,7 +1125,7 @@
             "CONFIRM_CONTINUE": "Turpināt",
             "CONFIRM_CANCEL": "Atcelt",
             "SUCCESS": "AI saturs veiksmīgi izveidots",
-            "ERROR_ALL_EMPTY": "AI neizdevās izveidot saturu. Lūdzu, mēģiniet ar detalizētāku aprakstu.",
+            "ERROR_ALL_EMPTY": "Nav izveidots saturs.",
             "ERROR_PARTIAL_CONTENT": "AI izveidoja daļēju saturu. Trūkst: {{fields}}",
             "FIELD_SUBJECT": "Tēma",
             "FIELD_DESCRIPTION": "Apraksts",

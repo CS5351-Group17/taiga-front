@@ -1151,7 +1151,7 @@
             "CONFIRM_CONTINUE": "Continuar",
             "CONFIRM_CANCEL": "Cancel·lar",
             "SUCCESS": "Contingut d'IA generat correctament",
-            "ERROR_ALL_EMPTY": "La IA no ha pogut generar cap contingut. Si us plau, prova amb una descripció més detallada.",
+            "ERROR_ALL_EMPTY": "No s'ha generat cap contingut.",
             "ERROR_PARTIAL_CONTENT": "La IA ha generat contingut parcial. Manca: {{fields}}",
             "FIELD_SUBJECT": "Assumpte",
             "FIELD_DESCRIPTION": "Descripció",

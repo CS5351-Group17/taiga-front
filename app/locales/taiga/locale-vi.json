@@ -1125,7 +1125,7 @@
             "CONFIRM_CONTINUE": "Tiếp tục",
             "CONFIRM_CANCEL": "Hủy",
             "SUCCESS": "Nội dung AI được tạo thành công",
-            "ERROR_ALL_EMPTY": "AI không thể tạo nội dung. Vui lòng thử với mô tả chi tiết hơn.",
+            "ERROR_ALL_EMPTY": "Không tạo được nội dung nào.",
             "ERROR_PARTIAL_CONTENT": "AI đã tạo nội dung một phần. Thiếu: {{fields}}",
             "FIELD_SUBJECT": "Chủ đề",
             "FIELD_DESCRIPTION": "Mô tả",

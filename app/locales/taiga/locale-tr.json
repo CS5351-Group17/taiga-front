@@ -1151,7 +1151,7 @@
             "CONFIRM_CONTINUE": "Devam et",
             "CONFIRM_CANCEL": "İptal",
             "SUCCESS": "AI içeriği başarıyla oluşturuldu",
-            "ERROR_ALL_EMPTY": "AI içerik oluşturamadı. Daha ayrıntılı bir açıklama ile deneyin.",
+            "ERROR_ALL_EMPTY": "İçerik oluşturulmadı.",
             "ERROR_PARTIAL_CONTENT": "AI kısmi içerik oluşturdu. Eksik: {{fields}}",
             "FIELD_SUBJECT": "Konu",
             "FIELD_DESCRIPTION": "Açıklama",

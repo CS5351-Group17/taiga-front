@@ -1125,7 +1125,7 @@
             "CONFIRM_CONTINUE": "Nastavi",
             "CONFIRM_CANCEL": "Otkaži",
             "SUCCESS": "AI sadržaj uspešno generisan",
-            "ERROR_ALL_EMPTY": "AI nije uspeo da generiše sadržaj. Pokušajte sa detaljnijim opisom.",
+            "ERROR_ALL_EMPTY": "Није креиран садржај.",
             "ERROR_PARTIAL_CONTENT": "AI je generisao delimičan sadržaj. Nedostaje: {{fields}}",
             "FIELD_SUBJECT": "Tema",
             "FIELD_DESCRIPTION": "Opis",

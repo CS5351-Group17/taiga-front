@@ -1144,7 +1144,7 @@
             "CONFIRM_CONTINUE": "続行",
             "CONFIRM_CANCEL": "キャンセル",
             "SUCCESS": "AIコンテンツが正常に生成されました",
-            "ERROR_ALL_EMPTY": "AIはコンテンツを生成できませんでした。より詳細な説明で試してください。",
+            "ERROR_ALL_EMPTY": "コンテンツが生成されませんでした。",
             "ERROR_PARTIAL_CONTENT": "AIは部分的なコンテンツを生成しました。不足：{{fields}}",
             "FIELD_SUBJECT": "件名",
             "FIELD_DESCRIPTION": "説明",
