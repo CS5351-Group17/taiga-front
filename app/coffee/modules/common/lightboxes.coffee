@@ -595,7 +595,7 @@ $confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
             return addedAny
 
         requestAiSuggestion = (payload) ->
-            $http.post("http://localhost:8000/api/v1/userstories/ai-suggestion", payload)
+            $http.post("http://localhost:8000/api/v1/userstories/ai_suggestion", payload)
 
         # 验证AI响应数据
         validateAiResponse = (responseData) ->
@@ -664,7 +664,7 @@ $confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
                 # subject: $scope.obj?.subject
                 # description: $scope.obj?.description
 
-            TEST_AI_DELAY_MS = 2000 # increase to simulate slower AI responses while testing
+            TEST_AI_DELAY_MS = 0 # increase to simulate slower AI responses while testing
 
             delayPromise = if TEST_AI_DELAY_MS > 0
                 $timeout(angular.noop, TEST_AI_DELAY_MS)
