@@ -1113,6 +1113,24 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI-ehdotukset",
+            "PROMPT_PLACEHOLDER": "Kuvaile haluamasi käyttäjätarina",
+            "PROMPT_HINT": "Anna yksityiskohtainen kuvaus saadaksesi parempia ehdotuksia",
+            "FETCH_BUTTON": "Hae ehdotus",
+            "GENERATING": "Luodaan",
+            "CANCEL_BUTTON": "Peruuta",
+            "CONFIRM_OVERWRITE_TITLE": "Korvataanko olemassa oleva sisältö?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI korvaa olemassa olevan sisältösi. Haluatko jatkaa?",
+            "CONFIRM_CONTINUE": "Jatka",
+            "CONFIRM_CANCEL": "Peruuta",
+            "SUCCESS": "AI-sisältö luotu onnistuneesti",
+            "ERROR_ALL_EMPTY": "Ei sisältöä luotu.",
+            "ERROR_PARTIAL_CONTENT": "AI loi osittaisen sisällön. Puuttuu: {{fields}}",
+            "FIELD_SUBJECT": "Aihe",
+            "FIELD_DESCRIPTION": "Kuvaus",
+            "FIELD_TAGS": "Tagit"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Haluatko varmasti poistaa Taiga-tunnuksesi?",
             "CANCEL": "Takaisin asetuksiin",

@@ -1118,6 +1118,24 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "پیشنهادات هوش مصنوعی",
+            "PROMPT_PLACEHOLDER": "داستان کاربری که می‌خواهید بنویسید را توصیف کنید",
+            "PROMPT_HINT": "لطفاً یک توضیح دقیق ارائه دهید تا پیشنهادات بهتری ایجاد شود",
+            "FETCH_BUTTON": "دریافت پیشنهاد",
+            "GENERATING": "در حال تولید",
+            "CANCEL_BUTTON": "لغو",
+            "CONFIRM_OVERWRITE_TITLE": "محتوای موجود بازنویسی شود؟",
+            "CONFIRM_OVERWRITE_MESSAGE": "هوش مصنوعی محتوای موجود شما را بازنویسی خواهد کرد. آیا می‌خواهید ادامه دهید؟",
+            "CONFIRM_CONTINUE": "ادامه",
+            "CONFIRM_CANCEL": "لغو",
+            "SUCCESS": "محتوای هوش مصنوعی با موفقیت ایجاد شد",
+            "ERROR_ALL_EMPTY": "محتوایی تولید نشد.",
+            "ERROR_PARTIAL_CONTENT": "هوش مصنوعی محتوای جزئی ایجاد کرد. مفقود: {{fields}}",
+            "FIELD_SUBJECT": "موضوع",
+            "FIELD_DESCRIPTION": "توضیحات",
+            "FIELD_TAGS": "برچسب‌ها"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "در مورد حذف حساب کاربری تایگای خود مطمئن هستید؟",
             "CANCEL": "بازگشت به تنظیمات",

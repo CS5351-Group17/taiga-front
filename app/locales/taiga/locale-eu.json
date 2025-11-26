@@ -1139,6 +1139,24 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI iradokizunak",
+            "PROMPT_PLACEHOLDER": "Deskribatu idatzi nahi duzun erabiltzaile-historia",
+            "PROMPT_HINT": "Mesedez, eman deskribapen xehea iradokizun hobeak sortzeko",
+            "FETCH_BUTTON": "Lortu iradokizuna",
+            "GENERATING": "Sortzen",
+            "CANCEL_BUTTON": "Ezeztatu",
+            "CONFIRM_OVERWRITE_TITLE": "Gainidatzi dagoen edukia?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AIk zure dagoen edukia gainidatziko du. Jarraitu nahi duzu?",
+            "CONFIRM_CONTINUE": "Jarraitu",
+            "CONFIRM_CANCEL": "Ezeztatu",
+            "SUCCESS": "AI edukia behar bezala sortu da",
+            "ERROR_ALL_EMPTY": "Ez da edukirik sortu.",
+            "ERROR_PARTIAL_CONTENT": "AIk eduki partziala sortu du. Falta da: {{fields}}",
+            "FIELD_SUBJECT": "Gaia",
+            "FIELD_DESCRIPTION": "Deskribapena",
+            "FIELD_TAGS": "Etiketak"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Ziur zaude Taiga kontua ezabatu nahi duzula?",
             "CANCEL": "Atzera ezarpenetara",

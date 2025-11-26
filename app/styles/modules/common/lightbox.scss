@@ -78,6 +78,302 @@
         }
     }
 
+    fieldset.ai-helper-fieldset {
+        backdrop-filter: blur(10px);
+        background: linear-gradient(
+            135deg,
+            rgba($whitish, .75) 0%,
+            rgba($whitish, .65) 100%
+        );
+        border: 1px solid rgba($color-link-primary, .25);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba($color-link-primary, .08),
+                    inset 0 1px 0 rgba(white, .4);
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+        margin-bottom: 1.5rem;
+        padding: 1.125rem 1.25rem;
+        position: relative;
+        transition: all .3s ease;
+    }
+
+    fieldset.ai-helper-fieldset::before {
+        background: linear-gradient(
+            135deg,
+            rgba(white, .1) 0%,
+            rgba(white, 0) 100%
+        );
+        border-radius: 12px;
+        content: '';
+        height: 100%;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    fieldset.ai-helper-fieldset:focus-within {
+        border-color: rgba($color-link-primary, .45);
+        box-shadow: 0 8px 32px rgba($color-link-primary, .15),
+                    0 0 0 1px rgba($color-link-primary, .2),
+                    inset 0 1px 0 rgba(white, .5);
+        transform: translateY(-2px);
+    }
+
+    fieldset.ai-helper-fieldset.ai-loading-glass {
+        animation: glass-shimmer 3s ease-in-out infinite;
+        background: linear-gradient(
+            135deg,
+            rgba(#ff6b6b, .15) 0%,
+            rgba(#f06595, .12) 16.67%,
+            rgba(#cc5de8, .12) 33.33%,
+            rgba(#845ef7, .15) 50%,
+            rgba(#5c7cfa, .12) 66.67%,
+            rgba(#339af0, .12) 83.33%,
+            rgba(#22b8cf, .15) 100%
+        );
+        background-size: 200% 200%;
+        border-color: rgba($color-link-primary, .35);
+        box-shadow: 0 8px 32px rgba(#845ef7, .25),
+                    0 0 60px rgba(#5c7cfa, .2),
+                    inset 0 1px 0 rgba(white, .6);
+    }
+
+    @keyframes glass-shimmer {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .ai-helper-header {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .75rem;
+        justify-content: space-between;
+    }
+
+    .ai-helper-title {
+        @include font-type(medium);
+        color: $color-black900;
+        letter-spacing: .01em;
+        transition: all .3s ease;
+    }
+
+    .ai-loading-glass .ai-helper-title {
+        animation: title-rainbow 3s linear infinite;
+        background: linear-gradient(
+            90deg,
+            #ff6b6b 0%,
+            #f06595 14.28%,
+            #cc5de8 28.56%,
+            #845ef7 42.84%,
+            #5c7cfa 57.12%,
+            #339af0 71.4%,
+            #22b8cf 85.68%,
+            #ff6b6b 100%
+        );
+        background-clip: text;
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes title-rainbow {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 200% 50%;
+        }
+    }
+
+    .ai-helper-button {
+        @include font-size(small);
+        font-weight: 600;
+        overflow: hidden;
+        padding-inline: 1rem;
+        position: relative;
+        transition: all .3s ease;
+    }
+
+    .ai-helper-button.ai-loading {
+        animation: rainbow-glow 2s linear infinite;
+        backdrop-filter: blur(4px);
+        background: linear-gradient(
+            90deg,
+            rgba(#ff6b6b, .85) 0%,
+            rgba(#f06595, .85) 16.67%,
+            rgba(#cc5de8, .85) 33.33%,
+            rgba(#845ef7, .85) 50%,
+            rgba(#5c7cfa, .85) 66.67%,
+            rgba(#339af0, .85) 83.33%,
+            rgba(#22b8cf, .85) 100%
+        );
+        background-size: 200% 100%;
+        border-color: rgba(white, .3);
+        box-shadow: 0 0 20px rgba(#845ef7, .6),
+                    0 0 40px rgba(#5c7cfa, .4),
+                    inset 0 1px 0 rgba(white, .3);
+    }
+
+    @keyframes rainbow-glow {
+        0% {
+            background-position: 0% 50%;
+            box-shadow: 0 0 20px rgba(#ff6b6b, .6), 0 0 40px rgba(#f06595, .4);
+        }
+        16.67% {
+            box-shadow: 0 0 20px rgba(#f06595, .6), 0 0 40px rgba(#cc5de8, .4);
+        }
+        33.33% {
+            box-shadow: 0 0 20px rgba(#cc5de8, .6), 0 0 40px rgba(#845ef7, .4);
+        }
+        50% {
+            background-position: 100% 50%;
+            box-shadow: 0 0 20px rgba(#845ef7, .6), 0 0 40px rgba(#5c7cfa, .4);
+        }
+        66.67% {
+            box-shadow: 0 0 20px rgba(#5c7cfa, .6), 0 0 40px rgba(#339af0, .4);
+        }
+        83.33% {
+            box-shadow: 0 0 20px rgba(#339af0, .6), 0 0 40px rgba(#22b8cf, .4);
+        }
+        100% {
+            background-position: 0% 50%;
+            box-shadow: 0 0 20px rgba(#22b8cf, .6), 0 0 40px rgba(#ff6b6b, .4);
+        }
+    }
+
+    .ai-loading-text {
+        display: inline-block;
+        margin-right: .25rem;
+    }
+
+    .ai-loading-dots {
+        display: inline-block;
+    }
+
+    .ai-loading-dots .dot {
+        animation: dot-pulse 1.4s infinite;
+        display: inline-block;
+        opacity: 0;
+    }
+
+    .ai-loading-dots .dot:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .ai-loading-dots .dot:nth-child(2) {
+        animation-delay: .2s;
+    }
+
+    .ai-loading-dots .dot:nth-child(3) {
+        animation-delay: .4s;
+    }
+
+    @keyframes dot-pulse {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .ai-loading-dots .dot::before {
+        content: '.';
+    }
+
+    .ai-helper-input {
+        backdrop-filter: blur(4px);
+        background: rgba(white, .6);
+        border: 1px solid rgba($color-link-primary, .25);
+        border-radius: 8px;
+        box-shadow: inset 0 1px 3px rgba($color-link-primary, .08);
+        min-height: 6rem;
+        padding: .75rem 1rem;
+        transition: all .2s ease;
+    }
+
+    .ai-helper-input:focus {
+        background: rgba(white, .75);
+        border-color: rgba($color-link-primary, .45);
+        box-shadow: 0 0 0 3px rgba($color-link-primary, .12),
+                    inset 0 1px 3px rgba($color-link-primary, .08);
+        outline: none;
+    }
+
+    .ai-loading-glass .ai-helper-input {
+        animation: input-glow 2s ease-in-out infinite;
+        background: rgba(white, .5);
+        border-color: rgba($color-link-primary, .3);
+    }
+
+    @keyframes input-glow {
+        0%, 100% {
+            box-shadow: 0 0 10px rgba(#845ef7, .2),
+                        inset 0 1px 3px rgba($color-link-primary, .08);
+        }
+        50% {
+            box-shadow: 0 0 20px rgba(#5c7cfa, .3),
+                        inset 0 1px 3px rgba($color-link-primary, .12);
+        }
+    }
+
+    .ai-helper-hint {
+        @include font-size(xsmall);
+        color: rgba($color-black900, .65);
+        line-height: 1.5;
+        transition: color .3s ease;
+    }
+
+    .ai-loading-glass .ai-helper-hint {
+        animation: hint-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes hint-pulse {
+        0%, 100% {
+            color: rgba($color-black900, .65);
+        }
+        50% {
+            color: rgba(#845ef7, .8);
+        }
+    }
+
+    .ai-helper-confirm {
+        background: rgba($color-link-primary, .08);
+        border: 1px solid rgba($color-link-primary, .2);
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+        margin-top: .75rem;
+        padding: .75rem 1rem;
+    }
+
+    .ai-helper-confirm-text {
+        @include font-size(small);
+        color: $color-black900;
+        margin: 0;
+    }
+
+    .ai-helper-confirm-actions {
+        display: flex;
+        gap: .5rem;
+    }
+
+    .ai-helper-confirm-actions .btn-link {
+        color: $color-link-primary;
+    }
+
     .settings {
         display: flex;
         justify-content: center;
@@ -774,9 +1070,12 @@
     $width: 700px;
     $pop-width: 203px;
     $sidebar-width: calc(200px + 2rem);
-    form {
+    form { /* modified by me */
         flex-basis: $width;
+        max-height: 80vh;
         max-width: $width;
+        overflow-y: auto;
+        padding-right: 1rem;
         width: $width;
     }
     label {

@@ -1113,6 +1113,24 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI-förslag",
+            "PROMPT_PLACEHOLDER": "Beskriv användarberättelsen du vill skriva",
+            "PROMPT_HINT": "Vänligen ge en detaljerad beskrivning för att generera bättre förslag",
+            "FETCH_BUTTON": "Hämta förslag",
+            "GENERATING": "Genererar",
+            "CANCEL_BUTTON": "Avbryt",
+            "CONFIRM_OVERWRITE_TITLE": "Skriv över befintligt innehåll?",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI kommer att skriva över ditt befintliga innehåll. Vill du fortsätta?",
+            "CONFIRM_CONTINUE": "Fortsätt",
+            "CONFIRM_CANCEL": "Avbryt",
+            "SUCCESS": "AI-innehåll genererat framgångsrikt",
+            "ERROR_ALL_EMPTY": "Ingen innehåll genererat.",
+            "ERROR_PARTIAL_CONTENT": "AI genererade delvis innehåll. Saknas: {{fields}}",
+            "FIELD_SUBJECT": "Ämne",
+            "FIELD_DESCRIPTION": "Beskrivning",
+            "FIELD_TAGS": "Taggar"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Är du säker på att du vill radera kontot?",
             "CANCEL": "Tillbaka till inställningar",

@@ -1139,6 +1139,24 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "Suggerimenti IA",
+            "PROMPT_PLACEHOLDER": "Descrivi la user story che desideri redigere",
+            "PROMPT_HINT": "Fornisci una descrizione dettagliata per generare suggerimenti migliori",
+            "FETCH_BUTTON": "Ottieni suggerimento",
+            "GENERATING": "Generazione",
+            "CANCEL_BUTTON": "Annulla",
+            "CONFIRM_OVERWRITE_TITLE": "Sovrascrivere il contenuto esistente?",
+            "CONFIRM_OVERWRITE_MESSAGE": "L'IA sovrascriverà il tuo contenuto esistente. Vuoi continuare?",
+            "CONFIRM_CONTINUE": "Continua",
+            "CONFIRM_CANCEL": "Annulla",
+            "SUCCESS": "Contenuto IA generato con successo",
+            "ERROR_ALL_EMPTY": "Nessun contenuto generato.",
+            "ERROR_PARTIAL_CONTENT": "L'IA ha generato contenuto parziale. Mancante: {{fields}}",
+            "FIELD_SUBJECT": "Oggetto",
+            "FIELD_DESCRIPTION": "Descrizione",
+            "FIELD_TAGS": "Tag"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Sei sicuro di voler eliminare il tuo account Taiga?",
             "CANCEL": "Torna alle impostazioni",

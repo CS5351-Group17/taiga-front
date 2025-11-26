@@ -1139,6 +1139,24 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "Пропозиції ШІ",
+            "PROMPT_PLACEHOLDER": "Опишіть користувацьку історію, яку ви хочете створити",
+            "PROMPT_HINT": "Будь ласка, надайте детальний опис для створення кращих пропозицій",
+            "FETCH_BUTTON": "Отримати пропозицію",
+            "GENERATING": "Генерація",
+            "CANCEL_BUTTON": "Скасувати",
+            "CONFIRM_OVERWRITE_TITLE": "Перезаписати існуючий вміст?",
+            "CONFIRM_OVERWRITE_MESSAGE": "ШІ перезапише ваш існуючий вміст. Продовжити?",
+            "CONFIRM_CONTINUE": "Продовжити",
+            "CONFIRM_CANCEL": "Скасувати",
+            "SUCCESS": "Вміст ШІ успішно створено",
+            "ERROR_ALL_EMPTY": "Контент не створено.",
+            "ERROR_PARTIAL_CONTENT": "ШІ створив частковий вміст. Відсутнє: {{fields}}",
+            "FIELD_SUBJECT": "Тема",
+            "FIELD_DESCRIPTION": "Опис",
+            "FIELD_TAGS": "Теги"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "Ви дійсно хочете видалити обліковий запис Taiga?",
             "CANCEL": "Назад до налаштувань",

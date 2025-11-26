@@ -992,6 +992,24 @@
         "MEMBERS_COUNTER_TITLE": "{total, plural, =1{egy tag} other{# tag}}"
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI javaslatok",
+            "PROMPT_PLACEHOLDER": "Írd le a felhasználói történetet, amelyet meg szeretnél írni",
+            "PROMPT_HINT": "Kérjük, adj meg részletes leírást a jobb javaslatok generálásához",
+            "FETCH_BUTTON": "Javaslat lekérése",
+            "GENERATING": "Generálás",
+            "CANCEL_BUTTON": "Mégse",
+            "CONFIRM_OVERWRITE_TITLE": "Felülírja a meglévő tartalmat?",
+            "CONFIRM_OVERWRITE_MESSAGE": "Az AI felülírja a meglévő tartalmadat. Folytatod?",
+            "CONFIRM_CONTINUE": "Folytatás",
+            "CONFIRM_CANCEL": "Mégse",
+            "SUCCESS": "AI tartalom sikeresen létrehozva",
+            "ERROR_ALL_EMPTY": "Nem generált tartalmat.",
+            "ERROR_PARTIAL_CONTENT": "Az AI részleges tartalmat hozott létre. Hiányzik: {{fields}}",
+            "FIELD_SUBJECT": "Tárgy",
+            "FIELD_DESCRIPTION": "Leírás",
+            "FIELD_TAGS": "Címkék"
+        },
         "DELETE_PROJECT": {
             "SUBTITLE": "Minden projektadat (user storyk, feladatok, problémák, sprintek és wiki oldalak) el fognak veszni! :(",
             "TITLE": "Projekt törlése",

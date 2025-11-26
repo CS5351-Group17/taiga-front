@@ -1132,6 +1132,24 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI提案",
+            "PROMPT_PLACEHOLDER": "作成したいユーザーストーリーを説明してください",
+            "PROMPT_HINT": "より良い提案を生成するために、詳細な説明を提供してください",
+            "FETCH_BUTTON": "提案を取得",
+            "GENERATING": "生成中",
+            "CANCEL_BUTTON": "キャンセル",
+            "CONFIRM_OVERWRITE_TITLE": "既存のコンテンツを上書きしますか？",
+            "CONFIRM_OVERWRITE_MESSAGE": "AIは既存のコンテンツを上書きします。続行しますか？",
+            "CONFIRM_CONTINUE": "続行",
+            "CONFIRM_CANCEL": "キャンセル",
+            "SUCCESS": "AIコンテンツが正常に生成されました",
+            "ERROR_ALL_EMPTY": "コンテンツが生成されませんでした。",
+            "ERROR_PARTIAL_CONTENT": "AIは部分的なコンテンツを生成しました。不足：{{fields}}",
+            "FIELD_SUBJECT": "件名",
+            "FIELD_DESCRIPTION": "説明",
+            "FIELD_TAGS": "タグ"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "本当にあなたのTaigaアカウントを削除してもよろしいですか？",
             "CANCEL": "設定に戻る",

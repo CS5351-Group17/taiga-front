@@ -1130,6 +1130,24 @@
         }
     },
     "LIGHTBOX": {
+        "AI_HELPER": {
+            "TITLE": "AI 建議",
+            "PROMPT_PLACEHOLDER": "描述您想要起草的使用者故事",
+            "PROMPT_HINT": "請提供詳細描述以產生更好的建議",
+            "FETCH_BUTTON": "獲取建議",
+            "GENERATING": "生成中",
+            "CANCEL_BUTTON": "取消",
+            "CONFIRM_OVERWRITE_TITLE": "覆蓋現有內容？",
+            "CONFIRM_OVERWRITE_MESSAGE": "AI 將覆蓋您已填寫的內容，是否繼續？",
+            "CONFIRM_CONTINUE": "繼續",
+            "CONFIRM_CANCEL": "取消",
+            "SUCCESS": "AI 內容生成成功",
+            "ERROR_ALL_EMPTY": "未產生任何內容。",
+            "ERROR_PARTIAL_CONTENT": "AI 產生了部分內容，缺失：{{fields}}",
+            "FIELD_SUBJECT": "標題",
+            "FIELD_DESCRIPTION": "描述",
+            "FIELD_TAGS": "標籤"
+        },
         "DELETE_ACCOUNT": {
             "CONFIRM": "你確定要刪除Taiga帳戶嗎？",
             "CANCEL": "回到設定",

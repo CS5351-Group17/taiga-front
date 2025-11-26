@@ -528,7 +528,7 @@ groupBy = @.taiga.groupBy
 
 CreateEditDirective = (
 $log, $repo, $model, $rs, $rootScope, lightboxService, $loading, $translate,
-$confirm, $q, attachmentsService, $template, $compile) ->
+$confirm, $http, $q, $timeout, attachmentsService, $template, $compile) ->
     link = ($scope, $el, attrs) ->
         schema = null
         objType = null
@@ -536,6 +536,227 @@ $confirm, $q, attachmentsService, $template, $compile) ->
 
         attachmentsToAdd = Immutable.List()
         attachmentsToDelete = Immutable.List()
+
+        $scope.aiHelper =
+            prompt: ""
+            loading: false
+            glassEffect: false
+            error: null
+            confirmVisible: false
+
+        hasExistingStoryContent = ->
+            subject = trim($scope.obj?.subject ? "")
+            description = trim($scope.obj?.description ? "")
+            subject.length > 0 or description.length > 0
+
+        hideAiConfirmation = ->
+            $scope.aiHelper.confirmVisible = false
+
+        addTagsFromAi = (rawTags) ->
+            return false unless angular.isArray(rawTags)
+
+            addedAny = false
+
+            for tagData in rawTags
+                continue unless angular.isObject(tagData)
+                tagName = trim(tagData.name ? "")
+                continue unless tagName
+                tagName = tagName.replace(/^#/, "")
+                # 移除 color 字段处理
+                tagNameLower = tagName.toLowerCase()
+
+                try
+                    if angular.isFunction($scope.addTag)
+                        # 不传递 color 参数
+                        $scope.addTag(tagName, null)
+                    else
+                        $scope.obj.tags ?= []
+
+                        alreadyPresent = _.some($scope.obj.tags, (current) ->
+                            if angular.isArray(current)
+                                return current[0]?.toLowerCase?() == tagNameLower
+                            if angular.isObject(current)
+                                return current.name?.toLowerCase?() == tagNameLower
+                            false
+                        )
+                        continue if alreadyPresent
+
+                        if $scope.obj.tags.length and angular.isArray($scope.obj.tags[0])
+                            # 不存储 color，只存储 tagName 和 null
+                            $scope.obj.tags.push([tagName, null])
+                        else
+                            # 只存储 name，不存储 color
+                            $scope.obj.tags.push({ name: tagName })
+
+                    addedAny = true
+                catch error
+                    $log?.error("AI tag injection failed", error)
+
+            return addedAny
+
+        requestAiSuggestion = (payload) ->
+            $http.post("http://localhost:8000/api/v1/userstories/ai_suggestion", payload)
+
+        # 验证AI响应数据
+        validateAiResponse = (responseData) ->
+            result = {
+                valid: true
+                missingFields: []
+                data: {
+                    suggestion_subject: ""
+                    suggestion_description: ""
+                    suggestion_tags: null
+                }
+            }
+            
+            if not responseData
+                result.valid = false
+                return result
+            
+            # 检查并清理各个字段
+            suggestion_subject = if responseData.suggestion_subject then trim(responseData.suggestion_subject) else ""
+            suggestion_description = if responseData.suggestion_description then trim(responseData.suggestion_description) else ""
+            suggestion_tags = responseData.suggestion_tags
+            
+            # 收集缺失的字段（空字符串也算缺失）
+            if not suggestion_subject or suggestion_subject.length == 0
+                result.missingFields.push("LIGHTBOX.AI_HELPER.FIELD_SUBJECT")
+            
+            if not suggestion_description or suggestion_description.length == 0
+                result.missingFields.push("LIGHTBOX.AI_HELPER.FIELD_DESCRIPTION")
+            
+            # 验证和清理 tags
+            validTags = null
+            if suggestion_tags
+                if angular.isArray(suggestion_tags) and suggestion_tags.length > 0
+                    # 移除 color 字段
+                    validTags = _.map suggestion_tags, (tag) ->
+                        if angular.isObject(tag)
+                            return { name: tag.name }
+                        return tag
+                else
+                    result.missingFields.push("LIGHTBOX.AI_HELPER.FIELD_TAGS")
+            else
+                result.missingFields.push("LIGHTBOX.AI_HELPER.FIELD_TAGS")
+            
+            # 如果所有字段都为空，标记为无效
+            if not suggestion_subject and not suggestion_description and not validTags
+                result.valid = false
+            
+            result.data.suggestion_subject = suggestion_subject
+            result.data.suggestion_description = suggestion_description
+            result.data.suggestion_tags = validTags
+            
+            return result
+
+        sendAiSuggestionRequest = ->
+            return if $scope.aiHelper.loading or !$scope.aiHelper.prompt
+
+            $scope.aiHelper.loading = true
+            $scope.aiHelper.glassEffect = true
+            $scope.aiHelper.error = null
+            hideAiConfirmation()
+
+            #################### prompt -> text
+            payload =
+                text: $scope.aiHelper.prompt
+                # project: $scope.project?.id
+                # subject: $scope.obj?.subject
+                # description: $scope.obj?.description
+
+            TEST_AI_DELAY_MS = 0 # increase to simulate slower AI responses while testing
+
+            delayPromise = if TEST_AI_DELAY_MS > 0
+                $timeout(angular.noop, TEST_AI_DELAY_MS)
+            else
+                $q.when()
+
+            requestPromise = delayPromise.then -> requestAiSuggestion(payload)
+
+            requestPromise
+                .then (response) ->
+                    try
+                        console.log("AI Response received:", response)
+                        console.log("Response data:", response?.data)
+                        
+                        # 验证响应数据
+                        result = validateAiResponse(response?.data)
+                        console.log("Validation result:", result)
+                        
+                        if not result.valid
+                            # 所有字段都为空
+                            console.log("All fields empty, showing error")
+                            message = $translate.instant("LIGHTBOX.AI_HELPER.ERROR_ALL_EMPTY")
+                            console.log("Error message:", message)
+                            $confirm.notify("error", message)
+                            return
+                        
+                        # 应用AI生成的数据
+                        data = result.data
+                        
+                        if data.suggestion_subject
+                            $scope.obj.subject = data.suggestion_subject
+                        
+                        if data.suggestion_description
+                            $scope.obj.description = data.suggestion_description
+                        
+                        addedTags = false
+                        if data.suggestion_tags
+                            # 清空现有标签
+                            $scope.obj.tags = []
+                            # 添加新标签
+                            addedTags = addTagsFromAi(data.suggestion_tags)
+                        
+                        # 如果有缺失字段，显示部分内容警告
+                        if result.missingFields.length > 0
+                            console.log("Missing fields detected:", result.missingFields)
+                            # 翻译字段名称
+                            fieldNames = _.map result.missingFields, (fieldKey) ->
+                                translated = $translate.instant(fieldKey)
+                                console.log("Translating", fieldKey, "->", translated)
+                                return translated
+                            
+                            console.log("Translated field names:", fieldNames)
+                            
+                            # 翻译主消息，使用插值
+                            message = $translate.instant("LIGHTBOX.AI_HELPER.ERROR_PARTIAL_CONTENT", {
+                                fields: fieldNames.join(", ")
+                            })
+                            console.log("Partial content message:", message)
+                            $confirm.notify("light-error", message)
+                        else
+                            # 全部生成成功
+                            console.log("All fields present, showing success")
+                            message = $translate.instant("LIGHTBOX.AI_HELPER.SUCCESS")
+                            console.log("Success message:", message)
+                            $confirm.notify("success", message)
+                    
+                    catch err
+                        console.error("Error processing AI response:", err)
+                        console.error("Error stack:", err.stack)
+                        message = $translate.instant("COMMON.ERROR")
+                        $confirm.notify("error", message)
+                , (error) ->
+                    message = error?.data?._error_message ? $translate.instant("COMMON.ERROR")
+                    $confirm.notify("error", message)
+                .finally ->
+                    $scope.aiHelper.loading = false
+                    $scope.aiHelper.glassEffect = false
+
+        $scope.onAiSuggestionClick = ->
+            return if $scope.aiHelper.loading or !$scope.aiHelper.prompt
+            if hasExistingStoryContent()
+                $scope.aiHelper.confirmVisible = true
+                return
+            sendAiSuggestionRequest()
+
+        $scope.confirmAiSuggestionOverwrite = ->
+            return if $scope.aiHelper.loading or !$scope.aiHelper.prompt
+            sendAiSuggestionRequest()
+
+        $scope.cancelAiSuggestionOverwrite = ->
+            return if $scope.aiHelper.loading
+            hideAiConfirmation()
 
         schemas = {
             us: {
@@ -614,7 +835,7 @@ $confirm, $q, attachmentsService, $template, $compile) ->
                         type: data.project.default_issue_type
                     }
             }
-        }
+        } 
 
         $scope.setMode = (value) ->
             $scope.mode = value
@@ -907,7 +1128,9 @@ module.directive("tgLbCreateEdit", [
     "$tgLoading",
     "$translate",
     "$tgConfirm",
+    "$http",
     "$q",
+    "$timeout",
     "tgAttachmentsService",
     "$tgTemplate",
     "$compile",
