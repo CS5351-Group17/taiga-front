@@ -242,6 +242,15 @@ runAiValidationTests()
 **测试代码：**
 
 ```javascript
+/**
+ * 浏览器端 AI JSON 格式验证自动化测试
+ * 使用方法：
+ * 1. 打开 Taiga 前端项目的创建用户故事页面（必须打开 lightbox 弹窗）
+ * 2. 打开浏览器控制台 (F12)
+ * 3. 复制粘贴此文件的全部内容到控制台并回车
+ * 4. 运行命令：runAiValidationTests()
+ */
+
 (function() {
     'use strict';
     
@@ -417,15 +426,143 @@ runAiValidationTests()
     }
     
     /**
+     * 强制清空表单字段（增强版 - 多种方式）
+     */
+    function clearFormFields(scope) {
+        try {
+            console.log('  🧹 开始清空现有表单字段...');
+            
+            // 方法 1: 通过 scope.form 清空
+            if (scope.form) {
+                console.log('    📝 清空 scope.form...');
+                
+                if (scope.form.subject !== undefined) {
+                    scope.form.subject = '';
+                    console.log('      ✓ subject 已清空');
+                }
+                
+                if (scope.form.description !== undefined) {
+                    scope.form.description = '';
+                    console.log('      ✓ description 已清空');
+                }
+                
+                if (scope.form.tags !== undefined) {
+                    scope.form.tags = [];
+                    console.log('      ✓ tags 已清空');
+                }
+            }
+            
+            // 方法 2: 通过 scope.us (user story) 清空
+            if (scope.us) {
+                console.log('    📝 清空 scope.us...');
+                
+                if (scope.us.subject !== undefined) {
+                    scope.us.subject = '';
+                }
+                
+                if (scope.us.description !== undefined) {
+                    scope.us.description = '';
+                }
+                
+                if (scope.us.tags !== undefined) {
+                    scope.us.tags = [];
+                }
+            }
+            
+            // 方法 3: 通过 DOM 直接清空输入框
+            console.log('    📝 清空 DOM 输入框...');
+            
+            // 清空 subject 输入框
+            const subjectInput = document.querySelector('input[name="subject"], input[ng-model*="subject"]');
+            if (subjectInput) {
+                subjectInput.value = '';
+                // 触发 Angular 的 input 事件
+                const event = new Event('input', { bubbles: true });
+                subjectInput.dispatchEvent(event);
+                console.log('      ✓ subject 输入框已清空');
+            }
+            
+            // 清空 description 文本框
+            const descTextarea = document.querySelector('textarea[name="description"], textarea[ng-model*="description"]');
+            if (descTextarea) {
+                descTextarea.value = '';
+                const event = new Event('input', { bubbles: true });
+                descTextarea.dispatchEvent(event);
+                console.log('      ✓ description 文本框已清空');
+            }
+            
+            // 清空 tags (通过删除标签元素)
+            const tagElements = document.querySelectorAll('.tag, .tags-container .tag-item, [class*="tag"]');
+            if (tagElements.length > 0) {
+                console.log(`      ℹ 找到 ${tagElements.length} 个标签元素`);
+                tagElements.forEach((tagEl, index) => {
+                    // 尝试点击删除按钮
+                    const deleteBtn = tagEl.querySelector('[class*="delete"], [class*="remove"], [class*="close"]');
+                    if (deleteBtn) {
+                        deleteBtn.click();
+                        console.log(`      ✓ 标签 ${index + 1} 已删除`);
+                    }
+                });
+            }
+            
+            // 方法 4: 清空 AI Helper 的建议字段
+            if (scope.aiHelper) {
+                console.log('    📝 清空 aiHelper 建议...');
+                scope.aiHelper.suggestion_subject = '';
+                scope.aiHelper.suggestion_description = '';
+                scope.aiHelper.suggestion_tags = [];
+                console.log('      ✓ aiHelper 建议已清空');
+            }
+            
+            // 强制触发脏检查（多次尝试）
+            try {
+                scope.$digest();
+            } catch (e) {
+                // digest 可能会抛出 "digest already in progress" 错误，忽略
+            }
+            
+            try {
+                scope.$apply();
+            } catch (e) {
+                // 同上
+            }
+            
+            // 延迟再触发一次
+            setTimeout(() => {
+                try {
+                    scope.$applyAsync();
+                } catch (e) {}
+            }, 50);
+            
+            console.log('  ✅ 表单字段清空完成');
+            
+            // 输出当前状态用于调试
+            console.log('  📊 当前表单状态:');
+            if (scope.form) {
+                console.log('    subject:', scope.form.subject);
+                console.log('    description:', scope.form.description);
+                console.log('    tags:', scope.form.tags);
+            }
+            if (scope.us) {
+                console.log('    us.subject:', scope.us.subject);
+                console.log('    us.description:', scope.us.description);
+                console.log('    us.tags:', scope.us.tags);
+            }
+            
+        } catch (e) {
+            console.warn('  ⚠️ 清空表单字段时出现警告:', e.message);
+            console.warn('  详细错误:', e);
+        }
+    }
+    
+    /**
      * 自动点击确认弹窗的"继续"按钮（通过 scope）
      */
     function autoConfirmThroughScope(scope) {
-        // 设置一个定时器来检查确认弹窗是否出现
         const checkInterval = setInterval(() => {
             if (scope.aiHelper && scope.aiHelper.confirmVisible === true) {
                 console.log('  🤖 检测到确认弹窗，自动点击"继续"按钮');
                 
-                // 通过 scope 直接调用确认方法
                 if (scope.confirmAiSuggestionOverwrite) {
                     scope.confirmAiSuggestionOverwrite();
                     scope.$apply();
@@ -434,7 +571,6 @@ runAiValidationTests()
             }
         }, 100);
         
-        // 5秒后停止检查
         setTimeout(() => {
             clearInterval(checkInterval);
         }, 5000);
@@ -447,11 +583,9 @@ runAiValidationTests()
      */
     function autoClickConfirmButton() {
         const observer = new MutationObserver((mutations) => {
-            // 查找确认弹窗
             const confirmDiv = document.querySelector('.ai-helper-confirm');
             
             if (confirmDiv && !confirmDiv.classList.contains('ng-hide')) {
-                // 查找"继续"按钮（btn-primary）
                 const continueButton = confirmDiv.querySelector('button.btn-primary');
                 
                 if (continueButton) {
@@ -463,7 +597,6 @@ runAiValidationTests()
             }
         });
         
-        // 开始观察整个文档
         observer.observe(document.body, {
             childList: true,
             subtree: true,
@@ -482,27 +615,21 @@ runAiValidationTests()
         const $http = injector.get('$http');
         const $q = injector.get('$q');
         
-        // 保存原始方法
         const originalPost = $http.post;
         
-        // 创建 mock 方法
         $http.post = function(url, data) {
             if (url.includes('/ai-suggestion')) {
                 console.log(`  📤 拦截到 AI 请求，返回测试数据`);
                 
-                // 直接返回测试用例的响应数据（不管是否有错误）
-                // 让前端代码自己处理验证逻辑
                 return $q.resolve({
                     status: 200,
                     data: testCase.response
                 });
             }
             
-            // 其他请求使用原始方法
             return originalPost.apply(this, arguments);
         };
         
-        // 返回清理函数
         return function cleanup() {
             $http.post = originalPost;
         };
@@ -515,19 +642,15 @@ runAiValidationTests()
         const injector = angular.element(document.body).injector();
         const $confirm = injector.get('$tgConfirm');
         
-        // 保存原始方法
         const originalNotify = $confirm.notify;
         
-        // 创建拦截方法
         $confirm.notify = function(type, message) {
             console.log(`  📬 捕获到通知: [${type}] ${message}`);
             callback(type, message);
             
-            // 仍然调用原始方法以显示通知
             return originalNotify.apply(this, arguments);
         };
         
-        // 返回清理函数
         return function cleanup() {
             $confirm.notify = originalNotify;
         };
@@ -547,13 +670,11 @@ runAiValidationTests()
             let observer = null;
             let intervalId = null;
             
-            // 设置通知拦截
             const cleanupNotify = interceptNotification((type, message) => {
                 if (testCompleted) return;
                 testCompleted = true;
                 notificationReceived = true;
                 
-                // 验证结果
                 const typeMatches = type === testCase.expectedType;
                 const messageMatches = testCase.expectedMessagePattern.test(message);
                 const passed = typeMatches && messageMatches;
@@ -589,7 +710,6 @@ runAiValidationTests()
                 
                 console.groupEnd();
                 
-                // 停止观察器和定时器
                 if (observer) {
                     observer.disconnect();
                 }
@@ -597,7 +717,6 @@ runAiValidationTests()
                     clearInterval(intervalId);
                 }
                 
-                // 清理并继续
                 setTimeout(() => {
                     cleanupNotify();
                     cleanupMock();
@@ -605,10 +724,8 @@ runAiValidationTests()
                 }, 500);
             });
             
-            // 设置 HTTP mock
             const cleanupMock = mockHttpForTest(testCase);
             
-            // 查找 scope 并触发 AI 请求
             setTimeout(() => {
                 try {
                     const scope = findAiHelperScope();
@@ -621,22 +738,22 @@ runAiValidationTests()
                         throw new Error('找不到 onAiSuggestionClick 方法');
                     }
                     
-                    // 设置 prompt
-                    scope.aiHelper = scope.aiHelper || {};
-                    scope.aiHelper.prompt = `Test case ${testCase.id}`;
-                    scope.aiHelper.loading = false;
+                    // 🆕 强制清空现有字段
+                    clearFormFields(scope);
                     
-                    // 启动两种自动确认方法
-                    // 方法1: 通过 scope 检查并调用
-                    intervalId = autoConfirmThroughScope(scope);
-                    
-                    // 方法2: 通过 DOM 观察
-                    observer = autoClickConfirmButton();
-                    
-                    // 触发请求
-                    console.log('  🚀 触发 AI 请求...');
-                    scope.onAiSuggestionClick();
-                    scope.$apply();
+                    // 等待清空操作完成（延长到 500ms）
+                    setTimeout(() => {
+                        scope.aiHelper = scope.aiHelper || {};
+                        scope.aiHelper.prompt = `Test case ${testCase.id}`;
+                        scope.aiHelper.loading = false;
+                        
+                        intervalId = autoConfirmThroughScope(scope);
+                        observer = autoClickConfirmButton();
+                        
+                        console.log('  🚀 触发 AI 请求...');
+                        scope.onAiSuggestionClick();
+                        scope.$apply();
+                    }, 500); // 延长等待时间到 500ms
                     
                 } catch (error) {
                     console.error('%c❌ 测试执行失败:', 'color: #cc0000; font-weight: bold', error);
@@ -664,7 +781,6 @@ runAiValidationTests()
                 }
             }, 100);
             
-            // 超时保护
             setTimeout(() => {
                 if (!testCompleted) {
                     console.warn('%c⏱️ 测试超时', 'color: #ff9900');
@@ -684,13 +800,13 @@ runAiValidationTests()
                         testId: testCase.id,
                         testName: testCase.name,
                         passed: false,
-                        error: 'Timeout - 可能需要手动点击确认按钮'
+                        error: 'Timeout'
                     });
                     
                     console.groupEnd();
                     resolve({ passed: false, error: 'Timeout' });
                 }
-            }, 5000);
+            }, 7000); // 延长超时时间到 7 秒
         });
     }
     
@@ -705,7 +821,6 @@ runAiValidationTests()
         console.log(`\n📊 总测试数: ${testCases.length}`);
         console.log(`⏰ 测试时间: ${new Date().toLocaleString()}`);
         
-        // 检查是否打开了 lightbox
         const scope = findAiHelperScope();
         if (!scope) {
             console.error('%c❌ 错误: 找不到用户故事编辑弹窗！', 'color: #cc0000; font-weight: bold; font-size: 14px');
@@ -717,23 +832,20 @@ runAiValidationTests()
         }
         
         console.log('%c✅ 找到用户故事编辑弹窗', 'color: #00aa00; font-weight: bold');
-        console.log('%c🤖 已启用自动确认功能（通过 scope 和 DOM 双重检测）', 'color: #00aa00; font-weight: bold');
+        console.log('%c🤖 已启用自动确认功能', 'color: #00aa00; font-weight: bold');
+        console.log('%c🧹 每次测试前会强制清空所有字段（多种方式）', 'color: #00aa00; font-weight: bold');
         console.log('');
         
-        // 清空之前的结果
         testResults.length = 0;
         
-        // 依次运行每个测试
         for (let i = 0; i < testCases.length; i++) {
             await runSingleTest(testCases[i]);
             
-            // 测试之间的延迟
             if (i < testCases.length - 1) {
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                await new Promise(resolve => setTimeout(resolve, 2000)); // 延长到 2 秒
             }
         }
         
-        // 打印测试总结
         printTestSummary();
         
         return testResults;
@@ -769,7 +881,7 @@ runAiValidationTests()
                         console.log(`     ❌ 类型不匹配: 期望 "${result.expectedType}", 实际 "${result.actualType}"`);
                     }
                     if (!result.messageMatches) {
-                        console.log(`     ❌ 消息不匹配: 期望匹配 ${testCase.expectedMessagePattern}`, 'color: #cc0000');
+                        console.log(`     ❌ 消息不匹配`);
                         console.log(`     实际消息: "${result.actualMessage}"`);
                     }
                 }
@@ -780,7 +892,6 @@ runAiValidationTests()
         
         console.log('\n%c═══════════════════════════════════════════════════════\n', 'color: #0099cc; font-weight: bold');
         
-        // 显示详细表格
         console.log('详细结果表格:');
         console.table(testResults.map(r => ({
             '测试ID': r.testId,
@@ -792,7 +903,6 @@ runAiValidationTests()
         })));
     }
     
-    // 暴露到全局
     window.runAiValidationTests = runAllTests;
     window.aiTestResults = testResults;
     window.aiTestCases = testCases;
@@ -802,7 +912,7 @@ runAiValidationTests()
     console.log('  在运行测试之前，请确保:');
     console.log('  1. 已打开创建/编辑用户故事的弹窗（lightbox）');
     console.log('  2. AI Helper 区域可见');
-    console.log('  3. 脚本会自动处理覆盖确认弹窗');
+    console.log('  3. 脚本会自动清空字段并处理确认弹窗');
     console.log('');
     console.log('运行以下命令开始测试:');
     console.log('%c  runAiValidationTests()', 'background: #222; color: #0f0; padding: 8px; font-family: monospace; font-size: 14px');
